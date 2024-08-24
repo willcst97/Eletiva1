@@ -10,7 +10,12 @@
     <h1>Resposta do exercício 3</h1>
     <?php
         if($_SERVER["REQUEST_METHOD"] == 'POST'){
-            
+            try{
+                $valor1 = (int) $_POST['valor1'] ?? 0;
+                $valor2 = (int) $_POST['valor2'] ?? 0;
+                $resultado = $valor1 * $valor2;
+                echo "<h3>$valor1 x $valor2 = $resultado</h3>"
+            }
         }
     ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
