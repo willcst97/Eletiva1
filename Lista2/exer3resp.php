@@ -14,7 +14,9 @@
                 $valor1 = (int) $_POST['valor1'] ?? 0;
                 $valor2 = (int) $_POST['valor2'] ?? 0;
                 $resultado = $valor1 * $valor2;
-                echo "<h3>$valor1 x $valor2 = $resultado</h3>"
+                echo "<h3>$valor1 x $valor2 = $resultado</h3>";
+            } catch(Exception $e){
+                echo "Erro! ".$e->getMessage();
             }
         }
     ?>
