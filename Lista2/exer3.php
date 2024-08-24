@@ -8,7 +8,7 @@
   </head>
   <body class="container">
     <h1>Exercício 3: multiplicação</h1>
-    <form action="exer2resp.php" method="post">
+    <form action="exer3resp.php" method="post">
         <div class="row">
             <div class="col">
                 <label for="valor1" class="form-label">Informe o primeiro valor:</label>
