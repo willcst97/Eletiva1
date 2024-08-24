@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <button type="submit" class="btn mt-3 btn-primary">Enviar</button>
+                <button type="submit" class="btn mt-3 btn-primary">Subtrair</button>
             </div>
         </div>
     </form>
