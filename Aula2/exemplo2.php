@@ -7,9 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body class="container">
-    <div class="col mt-5">
-        <div class="row">
-            <form action="exemplo_resposta.php" method="POST">
+    <div class="row mt-5">
+        <div class="col">
+            <form action="exemplo2_resposta.php" method="POST">
                 <input type="number" name="valor">
                 <button type="submit">OK</button>
             </form>
