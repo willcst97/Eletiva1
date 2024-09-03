@@ -20,6 +20,7 @@
             $minusculo = strtolower($valor);
             echo "<p>Maiúsculo: $maiusculo</p>";
             echo "<p>Minúsculo: $minusculo</p>";
+
             #funções de Data
             $dia = 30;
             $mes = 2;
@@ -29,6 +30,7 @@
             } else {
                 echo "<p>Data inválida!</p>";
             }
+            
             #Funções numéricas
             $menor = min(1, 2, 3, 4, 5);
             echo "<p>Menor valor: $menor</p>";
@@ -39,6 +41,7 @@
             $numero = 1546.225;
             $moeda = number_format($numero, 2, ",", ".");
             echo "<p>R$ $moeda</p>";
+
         } catch (Exception $e) {
             echo "Erro: " . $e->getMessage();
         }
