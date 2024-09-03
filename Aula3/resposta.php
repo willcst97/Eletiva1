@@ -13,8 +13,32 @@
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         try {
             $valor = $_POST['valor'];
+            #Funções de String
             $qtd_caracteres = strlen($valor);
             echo "<p>Quantidade de caracteres: $qtd_caracteres</p>";
+            $maiusculo = strtoupper($valor);
+            $minusculo = strtolower($valor);
+            echo "<p>Maiúsculo: $maiusculo</p>";
+            echo "<p>Minúsculo: $minusculo</p>";
+            #funções de Data
+            $dia = 30;
+            $mes = 2;
+            $ano = 2024;
+            if (checkdate($mes, $dia, $ano)) {
+                echo "<p>Data válida!</p>";
+            } else {
+                echo "<p>Data inválida!</p>";
+            }
+            #Funções numéricas
+            $menor = min(1, 2, 3, 4, 5);
+            echo "<p>Menor valor: $menor</p>";
+            $maior = max(1, 2, 3, 4, 5);
+            echo "<p>Maior valor: $maior</p>";
+            $aleatorio = rand(1,100);
+            echo "<p>Número aleatório: $aleatorio</p>";
+            $numero = 1546.225;
+            $moeda = number_format($numero, 2, ",", ".");
+            echo "<p>R$ $moeda</p>";
         } catch (Exception $e) {
             echo "Erro: " . $e->getMessage();
         }
