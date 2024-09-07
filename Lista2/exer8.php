@@ -10,7 +10,7 @@
 
 <body class="container">
   <h1>Exercício 8: área do retângulo</h1>
-  <form action="exer7resp.php" method="post">
+  <form action="exer8resp.php" method="post">
     <div class="row">
       <div class="col">
         <label for="valor1" class="form-label">Informe a altura do retângulo:</label>
@@ -23,7 +23,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <button type="submit" class="btn mt-3 btn-primary">Converter</button>
+        <button type="submit" class="btn mt-3 btn-primary">Calcular</button>
       </div>
     </div>
   </form>
