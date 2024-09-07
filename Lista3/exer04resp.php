@@ -13,12 +13,13 @@
   <?php
   if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     try {
-      $valor = number_format((int) $_POST['valor1'] ?? 0, 2, ",", ".");
+      $valor = (int) $_POST['valor'] ?? 0;
       if ($valor > 100) {
         $resultado = number_format($valor - ($valor * 0.15), 2, ",", ".");
+        $valor = number_format($valor, 2, ",", ".");
         echo "<h3>R$ $valor - 15% = $resultado</h3>";
       } else {
-        echo "<h3>Valor menor que R$ 100,00</h3>";
+        echo "<h3>Valor menor ou igual a R$ 100</h3>";
       }
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
