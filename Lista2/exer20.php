@@ -13,11 +13,11 @@
   <form action="exer20resp.php" method="post">
     <div class="row">
       <div class="col">
-        <label for="valor1" class="form-label">Informe a distância:</label>
+        <label for="valor1" class="form-label">Informe a distância em km:</label>
         <input type="text" class="form-control" name="valor1" id="valor1">
       </div>
       <div class="col">
-        <label for="valor2" class="form-label">Informe o tempo:</label>
+        <label for="valor2" class="form-label">Informe o tempo em horas:</label>
         <input type="text" class="form-control" name="valor2" id="valor2">
       </div>
       <div class="row">

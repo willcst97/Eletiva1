@@ -15,7 +15,8 @@
     try {
       $km = (float) $_POST['valor1'] ?? 0;
       $t = (float) $_POST['valor2'] ?? 0;
-      echo "<h3>$dias = $horas horas, $minutos minutos e $segundos segundos</h3>";
+      $velocidade = number_format($km/$t, 2, ",", ".");
+      echo "<h3>Velocidade médio do percurso: $velocidade km/h</h3>";
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
