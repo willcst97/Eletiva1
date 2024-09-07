@@ -19,25 +19,25 @@
                 <input type="number" class="form-control" name="valor2" id="valor2">
             </div>
             <div class="col">
-                <label for="valor3" class="form-label">Informe o valor 2:</label>
+                <label for="valor3" class="form-label">Informe o valor 3:</label>
                 <input type="number" class="form-control" name="valor3" id="valor2">
             </div>
         </div>
         <div class="row mt-2"> 
             <div class="col">
-                <label for="valor4" class="form-label">Informe o valor 1:</label>
+                <label for="valor4" class="form-label">Informe o valor 4:</label>
                 <input type="number" class="form-control" name="valor4" id="valor4">
             </div>
             <div class="col">
-                <label for="valor5" class="form-label">Informe o valor 2:</label>
+                <label for="valor5" class="form-label">Informe o valor 5:</label>
                 <input type="number" class="form-control" name="valor2" id="valor2">
             </div>
             <div class="col">
-                <label for="valor6" class="form-label">Informe o valor 2:</label>
+                <label for="valor6" class="form-label">Informe o valor 6:</label>
                 <input type="number" class="form-control" name="valor6" id="valor6">
             </div>
             <div class="col">
-                <label for="valor7" class="form-label">Informe o valor 2:</label>
+                <label for="valor7" class="form-label">Informe o valor 7:</label>
                 <input type="number" class="form-control" name="valor7" id="valor7">
             </div>
         </div>
