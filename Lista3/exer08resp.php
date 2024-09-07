@@ -18,7 +18,7 @@
       do {
         echo "$i";
         $i--;
-      } while ($i >= $valor);
+      } while ($i < $valor);
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
