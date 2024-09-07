@@ -4,18 +4,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Resposta do exercício 13</title>
+  <title>Resposta do exercício 14</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body class="container">
-  <h1>Resposta do exercício 13</h1>
+  <h1>Resposta do exercício 14</h1>
   <?php
   if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     try {
       $valor1 = (float) $_POST['valor1'] ?? 0;
-      $resultado = $valor1 * 100;
-      echo "<h3>$valor1 m = $resultado cm</h3>";
+      $resultado = number_format($valor1 * 0.621371, 2, ',', '.');
+      echo "<h3>$valor1 km = $resultado milhas</h3>";
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
