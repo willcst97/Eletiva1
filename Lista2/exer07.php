@@ -10,7 +10,7 @@
 
 <body class="container">
   <h1>Exercício 7: converter temperatura</h1>
-  <form action="exer7resp.php" method="post">
+  <form action="exer07resp.php" method="post">
     <div class="row">
       <div class="col-6">
         <label for="valor1" class="form-label">Informe a temperatura em graus Fahrenheit:</label>

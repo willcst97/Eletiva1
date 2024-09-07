@@ -10,7 +10,7 @@
 
 <body class="container">
   <h1>Exercício 11: perímetro do círculo</h1>
-  <form action="exer10resp.php" method="post">
+  <form action="exer11resp.php" method="post">
     <div class="row">
     <div class="col">
         <label for="valor1" class="form-label">Informe o raio do círculo:</label>

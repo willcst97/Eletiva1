@@ -3,21 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Exercício 6</title>
+    <title>Exercício 5</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body class="container">
-    <h1>Exercício 6: converter temperatura</h1>
-    <form action="exer6resp.php" method="post">
+    <h1>Exercício 5: calcular média</h1>
+    <form action="exer05resp.php" method="post">
         <div class="row">
-            <div class="col-6">
-                <label for="valor1" class="form-label">Informe a temperatura em graus Celsius:</label>
+            <div class="col">
+                <label for="valor1" class="form-label">Informe a primeira nota:</label>
                 <input type="number" class="form-control" name="valor1" id="valor1">
+            </div>
+            <div class="col">
+                <label for="valor2" class="form-label">Informe a segunda nota:</label>
+                <input type="number" class="form-control" name="valor2" id="valor2">
+            </div>
+            <div class="col">
+                <label for="valor3" class="form-label">Informe a terceira nota:</label>
+                <input type="number" class="form-control" name="valor3" id="valor3">
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <button type="submit" class="btn mt-3 btn-primary">Converter</button>
+                <button type="submit" class="btn mt-3 btn-primary">Calcular</button>
             </div>
         </div>
     </form>

@@ -10,7 +10,7 @@
 
 <body class="container">
   <h1>Exercício 9: área do círculo</h1>
-  <form action="exer9resp.php" method="post">
+  <form action="exer09resp.php" method="post">
     <div class="row">
       <div class="col-6">
         <label for="valor1" class="form-label">Informe o raio do círculo:</label>
