@@ -16,7 +16,7 @@
       $capital = (float) $_POST['valor1'] ?? 0;
       $taxa = (float) $_POST['valor2'] ?? 0;
       $periodo = (int) $_POST['valor3'] ?? 0;
-      $resultado = number_format($capital * $taxa * $periodo, 2, ',', '.');
+      $resultado = number_format($capital * pow((1+$taxa),$periodo), 2, ',', '.');
       echo "<h3>R$ ".number_format($capital, 2, ',', '.')." x ".$taxa."% durante $periodo meses = R$ $resultado</h3>";
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
