@@ -13,7 +13,8 @@
             try 
             {
                 $valor = (int) $_POST['valor'] ?? 0;
-                if($valor>0){//mesma lógica de c#: se for 1 linha, não é necessário {}
+                //mesma lógica de c#: se for 1 linha, não é necessário {}
+                if($valor>0){
                     echo "Valor positivo";
                 }
                 elseif($valor<0)

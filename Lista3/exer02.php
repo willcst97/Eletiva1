@@ -8,7 +8,7 @@
   </head>
   <body class="container">
     <h1>Exercício 2: soma ou triplo</h1>
-    <p>Cálculo da soma dos dois valores de entrada. Se os dois valores forem iguais, retronará o triplo da soma</p>
+    <p>Cálculo da soma dos dois valores de entrada. Se os dois valores forem iguais, retronará o triplo da soma.</p>
     <form action="exer02resp.php" method="post">
         <div class="row mt-2"> 
             <div class="col">

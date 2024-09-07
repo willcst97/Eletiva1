@@ -15,21 +15,13 @@
     try {
       $valor1 = (int) $_POST['valor1'] ?? 0;
       $valor2 = (int) $_POST['valor2'] ?? 0;
-      $valor3 = (int) $_POST['valor3'] ?? 0;
-      $valor4 = (int) $_POST['valor4'] ?? 0;
-      $valor5 = (int) $_POST['valor5'] ?? 0;
-      $valor6 = (int) $_POST['valor6'] ?? 0;
-      $valor7 = (int) $_POST['valor7'] ?? 0;
-      $menor = min($valor1, $valor2, $valor3, $valor4, $valor5, $valor6, $valor7);
-      $posicaoMenor = 0;
-      if ($valor1 == $menor) $posicaoMenor = 1;
-      if ($valor2 == $menor) $posicaoMenor = 2;
-      if ($valor3 == $menor) $posicaoMenor = 3;
-      if ($valor4 == $menor) $posicaoMenor = 4;
-      if ($valor5 == $menor) $posicaoMenor = 5;
-      if ($valor6 == $menor) $posicaoMenor = 6;
-      if ($valor7 == $menor) $posicaoMenor = 7;
-      echo "<h3>O menor valor é o $menor e está na posição $posicaoMenor</h3>";
+      if ($valor1 == $valor2) {
+        $resultado = 3 * ($valor1 + $valor2);
+        echo "<h3> $valor1 é igual $valor2, então o triplo da soma dos dois é igual a $resultado";
+      } else {
+        $resultado = $valor1 + $valor2;
+        echo "<h3> $valor1 não é igual $valor2, então a soma dos dois é igual a $resultado";
+      }
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
