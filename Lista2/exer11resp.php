@@ -14,8 +14,8 @@
   if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     try {
       $valor1 = (int) $_POST['valor1'] ?? 0;
-      $resultado = number_format(2* M_PI * $valor1, 2);
-      echo "<h3>O perímetro de um círuculo com $valor1 de raior = $resultado</h3>";
+      $resultado = number_format(2* M_PI * $valor1, 2,',','.');
+      echo "<h3>O perímetro de um círuculo com $valor1 de raio = $resultado</h3>";
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
