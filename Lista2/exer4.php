@@ -11,11 +11,11 @@
     <form action="exer4resp.php" method="post">
         <div class="row">
             <div class="col">
-                <label for="valor1" class="form-label">Informe o valor a ser dividido:</label>
+                <label for="valor1" class="form-label">Informe o valor a ser dividido (dividendo):</label>
                 <input type="number" class="form-control" name="valor1" id="valor1">
             </div>
             <div class="col">
-                <label for="valor2" class="form-label">Informe o o valor que irá dividir:</label>
+                <label for="valor2" class="form-label">Informe o valor que irá dividir (divisor):</label>
                 <input type="number" class="form-control" name="valor2" id="valor2">
             </div>
         </div>
