@@ -10,7 +10,7 @@
 
 <body class="container">
   <h1>Exercício 10: perímetro do retângulo</h1>
-  <form action="exer9resp.php" method="post">
+  <form action="exer10resp.php" method="post">
     <div class="row">
     <div class="col">
         <label for="valor1" class="form-label">Informe a altura do retângulo:</label>
