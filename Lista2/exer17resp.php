@@ -4,19 +4,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Resposta do exercício 15</title>
+  <title>Resposta do exercício 17</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body class="container">
-  <h1>Resposta do exercício 15</h1>
+  <h1>Resposta do exercício 17</h1>
   <?php
   if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     try {
-      $valor1 = (float) $_POST['valor1'] ?? 0;
-      $valor2 = (float) $_POST['valor2'] ?? 0;
-      $resultado = number_format($valor1 - ($valor2 / 100), 2, ',', '.');
-      echo "<h3>R$ " . $valor1." - ".$valor2 . "% de desconto = R$" . $resultado . "</h3>";
+      $capital = (float) $_POST['valor1'] ?? 0;
+      $taxa = (float) $_POST['valor2'] ?? 0;
+      $periodo = (int) $_POST['valor3'] ?? 0;
+      $resultado = number_format($capital * $taxa * $periodo, 2, ',', '.');
+      echo "<h3>R$ ".number_format($capital, 2, ',', '.')." x ".$taxa."% durante $periodo meses = R$ $resultado</h3>";
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
