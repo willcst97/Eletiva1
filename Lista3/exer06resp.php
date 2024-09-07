@@ -14,7 +14,7 @@
   if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     try {
       $valor = (int) $_POST['valor'] ?? 0;
-      for ($i=0; $i<=$valor; $i++){
+      for ($i=1; $i<=$valor; $i++){
         echo "<h3>$i</h3>";
       }
     } catch (Exception $e) {
