@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Exercício 2</title>
+    <title>Exercício 3</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body class="container">
-    <h1>Exercício 2: soma ou triplo da soma</h1>
-    <p>Cálculo da soma dos dois valores de entrada. Se os dois valores forem iguais, retronará o triplo da soma.</p>
-    <form action="exer02resp.php" method="post">
+    <h1>Exercício 3: ordem crescente</h1>
+    <p>Lista de dois valores informados em ordem crescente. Caso os valores forem iguais, mostrará apenas um dos valores.</p>
+    <form action="exer03resp.php" method="post">
         <div class="row mt-2"> 
             <div class="col">
                 <label for="valor1" class="form-label">Informe o valor 1:</label>
