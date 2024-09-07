@@ -15,8 +15,8 @@
     try {
       $valor1 = (float) $_POST['valor1'] ?? 0;
       $valor2 = (float) $_POST['valor2'] ?? 0;
-      $resultado = number_format($valor1 /($valor2 * $valor2), 2, ',', '.');
-      echo "<h3>IMC = $resultado</h3>";
+      $resultado = number_format($valor1 - ($valor2 / 100), 2, ',', '.');
+      echo "<h3>R$ " . $valor1." - ".$valor2 . "% de desconto = R$" . $resultado . "</h3>";
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
