@@ -16,7 +16,7 @@
       $km = (float) $_POST['valor1'] ?? 0;
       $t = (float) $_POST['valor2'] ?? 0;
       $velocidade = number_format($km/$t, 2, ",", ".");
-      echo "<h3>Velocidade médio do percurso: $velocidade km/h</h3>";
+      echo "<h3>Velocidade média do percurso: $velocidade km/h</h3>";
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
