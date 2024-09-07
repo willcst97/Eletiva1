@@ -14,8 +14,8 @@
   if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     try {
       $valor1 = (int) $_POST['valor1'] ?? 0;
-      $resultado = $valor1 * $valor2;
-      echo "<h3>A área  de um retângulo $valor1 x $valor2 = $resultado</h3>";
+      $resultado = number_format(M_PI * ($valor1 * $valor1), 2);
+      echo "<h3>A área de um cículo com $valor1 de raio = $resultado</h3>";
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
