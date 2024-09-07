@@ -10,9 +10,9 @@
 
 <body class="container">
   <h1>Exercício 19: converter dias para horas, minutos e segundos</h1>
-  <form action="exer18resp.php" method="post">
+  <form action="exer19resp.php" method="post">
     <div class="row">
-      <div class="col">
+      <div class="col-6">
         <label for="valor1" class="form-label">Informe a quantidade de dias:</label>
         <input type="text" class="form-control" name="valor1" id="valor1">
       </div>
