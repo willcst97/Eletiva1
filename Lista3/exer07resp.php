@@ -20,7 +20,7 @@
         $soma += $i;
         $i++;
       }
-      echo "<h3>A some de 1 até $valor = $soma</h3>";
+      echo "<h3>A soma de 1 até $valor = $soma</h3>";
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }

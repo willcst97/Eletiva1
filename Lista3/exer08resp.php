@@ -14,13 +14,11 @@
   if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     try {
       $valor = (int) $_POST['valor'] ?? 0;
-      $i = 1;
-      $soma = 0;
-      while ($i <= $valor) {
-        $soma += $i;
-        $i++;
-      }
-      echo "<h3>A some de 1 até $valor = $soma</h3>";
+      $i = $valor;
+      do {
+        echo "$i";
+        $i--;
+      } while ($i >= $valor);
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
