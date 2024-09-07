@@ -8,7 +8,7 @@
   </head>
   <body class="container">
     <h1>Exercício 3: ordem crescente</h1>
-    <p>Lista de dois valores informados em ordem crescente. Caso os valores forem iguais, mostrará apenas um dos valores.</p>
+    <p>Lista de dois valores informados em ordem crescente. Caso os valores forem iguais, listará apenas um dos valores.</p>
     <form action="exer03resp.php" method="post">
         <div class="row mt-2"> 
             <div class="col">
