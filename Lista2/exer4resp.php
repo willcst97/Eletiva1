@@ -19,7 +19,7 @@
         $resultado = $valor1 / $valor2;
         echo "<h3>$valor1 / $valor2 = $resultado</h3>";
       } else {
-        echo "Divisor não pode ser menor ou igual a zero!";
+        echo "<h3>Divisor não pode ser menor ou igual a zero!</h3>";
       }
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();

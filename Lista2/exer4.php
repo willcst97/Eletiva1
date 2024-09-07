@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <button type="submit" class="btn mt-3 btn-primary">Multiplicar</button>
+                <button type="submit" class="btn mt-3 btn-primary">Dividir</button>
             </div>
         </div>
     </form>
