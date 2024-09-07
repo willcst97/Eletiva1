@@ -14,11 +14,11 @@
   if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     try {
       $valor = (int) $_POST['valor'] ?? 0;
-      $i = $valor;
-      do {
-        echo "<h3>$i</h3>";
-        $i--;
-      } while ($i >= 0);
+      $fatorial = 1;
+    for ($i = 1; $i <= $valor; $i++) {
+        $fatorial *= $i;
+    }
+    echo "<h3>Fatorial de $valor = $fatorial</h3>";
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
