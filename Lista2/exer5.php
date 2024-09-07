@@ -8,7 +8,7 @@
   </head>
   <body class="container">
     <h1>Exercício 5: calcular média</h1>
-    <form action="exer4resp.php" method="post">
+    <form action="exer5resp.php" method="post">
         <div class="row">
             <div class="col">
                 <label for="valor1" class="form-label">Informe a primeira nota:</label>
@@ -19,8 +19,8 @@
                 <input type="number" class="form-control" name="valor2" id="valor2">
             </div>
             <div class="col">
-                <label for="valor2" class="form-label">Informe a terceira nota:</label>
-                <input type="number" class="form-control" name="valor2" id="valor2">
+                <label for="valor3" class="form-label">Informe a terceira nota:</label>
+                <input type="number" class="form-control" name="valor3" id="valor3">
             </div>
         </div>
         <div class="row">
