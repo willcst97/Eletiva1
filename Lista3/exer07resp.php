@@ -15,10 +15,12 @@
     try {
       $valor = (int) $_POST['valor'] ?? 0;
       $i = 1;
-      while ($i <= 5) {
-        echo "$i \n";
+      $soma = 0;
+      while ($i <= $valor) {
+        $soma += $i;
         $i++;
       }
+      echo "<h3>A some de 1 até $valor = $soma</h3>";
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
