@@ -12,9 +12,9 @@
   <h1>Exercício 13: converter metros para centímetros</h1>
   <form action="exer13resp.php" method="post">
     <div class="row">
-      <div class="col">
+      <div class="col-6">
         <label for="valor1" class="form-label">Informe o valor em metros:</label>
-        <input type="number" class="form-control" name="valor1" id="valor1">
+        <input type="text" class="form-control" name="valor1" id="valor1">
       </div>
       <div class="row">
         <div class="col">
