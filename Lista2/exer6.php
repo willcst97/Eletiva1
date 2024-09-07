@@ -8,7 +8,7 @@
   </head>
   <body class="container">
     <h1>Exercício 6: coonverter temperatura</h1>
-    <form action="exer5resp.php" method="post">
+    <form action="exer6resp.php" method="post">
         <div class="row">
             <div class="col-3">
                 <label for="valor1" class="form-label">Informe a temperatura em graus Celsius:</label>
@@ -17,7 +17,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <button type="submit" class="btn mt-3 btn-primary">Calcular</button>
+                <button type="submit" class="btn mt-3 btn-primary">Converter</button>
             </div>
         </div>
     </form>

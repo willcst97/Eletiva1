@@ -14,10 +14,8 @@
   if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     try {
       $valor1 = (int) $_POST['valor1'] ?? 0;
-      $valor2 = (int) $_POST['valor2'] ?? 0;
-      $valor3 = (int) $_POST['valor3'] ?? 0;
-      $resultado = number_format(($valor1 + $valor2 + $valor3) / 3, 2);
-      echo "<h3>Média das 3 notas = $resultado</h3>";
+      $resultado = ($valor1 * (9/5)+32);
+      echo "<h3>$valor1 °C = $resultado °F</h3>";
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
