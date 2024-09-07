@@ -4,19 +4,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Resposta do exercício 19</title>
+  <title>Resposta do exercício 20</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body class="container">
-  <h1>Resposta do exercício 19</h1>
+  <h1>Resposta do exercício 20</h1>
   <?php
   if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     try {
-      $dias = (int) $_POST['valor1'] ?? 0;
-      $horas = number_format($dias * 24, 0, ',', '.');
-      $minutos = number_format($dias * 24 * 60, 0, ',', '.');
-      $segundos = number_format($dias * 24 * 60 * 60, 0, ',', '.');
+      $km = (float) $_POST['valor1'] ?? 0;
+      $t = (float) $_POST['valor2'] ?? 0;
       echo "<h3>$dias = $horas horas, $minutos minutos e $segundos segundos</h3>";
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
