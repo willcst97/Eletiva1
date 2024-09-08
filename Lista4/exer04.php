@@ -11,7 +11,7 @@
 <body class="container">
   <h1>Exercício 4: verificar data</h1>
   <p>Informe um dia, um mês e um ano e terá de retorno a verificação se esta data é válida.</p>
-  <form action="exer03resp.php" method="post">
+  <form action="exer04resp.php" method="post">
     <div class="row mt-2">
       <div class="col">
         <label for="valor1" class="form-label">Informe o dia:</label>
