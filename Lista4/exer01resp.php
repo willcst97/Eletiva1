@@ -13,11 +13,9 @@
   <?php
   if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     try {
-      $valor = (int) $_POST['valor'] ?? 0;
-      for ($i = 1; $i <= 10; $i++) {
-        $resposta = $i * $valor;
-        echo "<h3> $i x $valor = $resposta";
-      }
+      $valor = (string) $_POST['valor'];
+      $qtd = strlen($valor);
+      echo "<h3>$valor possui $qtd caracteres</h3>";
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
