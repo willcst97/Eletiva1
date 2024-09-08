@@ -10,7 +10,7 @@
 
 <body class="container">
   <h1>Exercício 2: caracteres maiúsculos e minúsculos</h1>
-  <p>Informe uma palavra e terá de retrono a palavra toda em maiúscula e toda em minúscula.</p>
+  <p>Informe uma palavra e terá de retorno a palavra toda em maiúscula e toda em minúscula.</p>
   <form action="exer02resp.php" method="post">
     <div class="row mt-2">
       <div class="col-6">

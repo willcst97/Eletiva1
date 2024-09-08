@@ -10,7 +10,7 @@
 
 <body class="container">
   <h1>Exercício 3: verificar subpalavras em palavras</h1>
-  <p>Informe duas palavras e terá de retrono se a primeira palavra está contida na segunda palavra.</p>
+  <p>Informe duas palavras e terá de retorno se a primeira palavra está contida na segunda palavra.</p>
   <form action="exer03resp.php" method="post">
     <div class="row mt-2">
       <div class="col">

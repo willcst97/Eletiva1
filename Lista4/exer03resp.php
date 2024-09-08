@@ -4,20 +4,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Resposta do exercício 2</title>
+  <title>Resposta do exercício 3</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body class="container">
-  <h1>Resposta do exercício 2</h1>
+  <h1>Resposta do exercício 3</h1>
   <?php
   if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     try {
-      $valor1 = (string) $_POST['valor1'];
-      $valor2 = (string) $_POST['valor2'];
-      $maiusculo = strtoupper($valor);
-      $minusculo = strtolower($valor);
-      echo "<h3>$valor: $maiusculo $minusculo</h3>";
+      $palavra1 = (string) $_POST['valor1'];
+      $palavra2 = (string) $_POST['valor2'];
+      if (strpos($palavra1, $palavra2) !== false) {
+        echo "<h3>A palavra $palavra2 está contida na palavra $palavra1.</h3>";
+      } else {
+        echo "<h3>A palavra $palavra2 não está contida na palavra $palavra1.</h3>";
+      }
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }

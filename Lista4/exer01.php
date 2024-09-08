@@ -10,7 +10,7 @@
 
 <body class="container">
   <h1>Exercício 1: contador de caracteres</h1>
-  <p>Informe uma palavra e terá de retrono o número de caracteres desta palavra.</p>
+  <p>Informe uma palavra e terá de retorno o número de caracteres desta palavra.</p>
   <form action="exer01resp.php" method="post">
     <div class="row mt-2">
       <div class="col-6">
