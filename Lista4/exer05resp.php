@@ -13,14 +13,9 @@
   <?php
   if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     try {
-      $dia = (int) $_POST['valor1'];
-      $mes = (int) $_POST['valor2'];
-      $ano = (int) $_POST['valor3'];
-      if (checkdate($mes, $dia, $ano)) {
-        echo "<h3>$dia/$mes/$ano é uma data válida.</h3>";
-      } else {
-        echo "<h3>$dia/$mes/$ano não é uma data válida.</h3>";
-      }
+      $valor = (int) $_POST['valor1'];
+      $resposta = sqrt($valor);
+      echo "<h3>Raiz quadrada de $valor = $resposta</h3>";
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
