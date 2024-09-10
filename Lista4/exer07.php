@@ -12,7 +12,7 @@
   <main class="container">
     <h1>Exercício 7: comparar datas</h1>
     <p>Informe duas data no formato dd/mm/yyyy e terá de retorno a diferença entre as duas datas.</p>
-    <form action="exer06resp.php" method="post">
+    <form action="exer07resp.php" method="post">
       <div class="row mt-2">
         <div class="row shadow p-3 mb-5 bg-body-tertiary rounded">
           <h5 class="row mb-3">Primeira data</h5>
@@ -45,6 +45,11 @@
             <label for="valor6" class="form-label">Informe o ano:</label>
             <input type="text" class="form-control" name="valor6" id="valor6">
           </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
       </div>
     </form>
