@@ -15,7 +15,7 @@ declare(strict_types=1); ?>
   <main class="container">
     <h1>Resposta do exercício 1</h1>
     <?php
-    function contarCaracteres(string $palavra): int
+    function contarCaracteres(string $palavra):int
     {
       return strlen($palavra);
     }
