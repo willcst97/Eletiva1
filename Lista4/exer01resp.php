@@ -1,3 +1,6 @@
+<?php
+
+declare(strict_types=1); ?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -9,19 +12,25 @@
 </head>
 
 <body class="container">
-  <h1>Resposta do exercício 1</h1>
-  <?php
-  if ($_SERVER["REQUEST_METHOD"] == 'POST') {
-    try {
-      $valor = (string) $_POST['valor'];
-      $qtd = strlen($valor);
-      echo "<h3>$valor possui $qtd caracteres</h3>";
-    } catch (Exception $e) {
-      echo "Erro! " . $e->getMessage();
+  <main class="container">
+    <h1>Resposta do exercício 1</h1>
+    <?php
+    function contarCaracteres(string $palavra): int
+    {
+      return strlen($palavra);
     }
-  }
-  ?>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+      try {
+        $palavra = (string) $_POST['palavra'];
+        echo "<h3>$palavra contém ".contarCaracteres($palavra)." caracter(es).</h3>";
+      } catch (Exception $e) {
+        echo "Erro! " . $e->getMessage();
+      }
+    }
+    ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </main>
 </body>
 
 </html>
