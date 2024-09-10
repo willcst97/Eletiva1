@@ -1,3 +1,6 @@
+<?php
+
+declare(strict_types=1); ?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -11,15 +14,19 @@
 <body class="container">
   <h1>Resposta do exercício 3</h1>
   <?php
+  function subpalavras($palavra1, $palavra2): void
+  {
+    if (strpos($palavra1, $palavra2) !== false) {
+      echo "<h3>A palavra $palavra2 está contida na palavra $palavra1.</h3>";
+    } else {
+      echo "<h3>A palavra $palavra2 não está contida na palavra $palavra1.</h3>";
+    }
+  }
   if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     try {
-      $palavra1 = (string) $_POST['valor1'];
-      $palavra2 = (string) $_POST['valor2'];
-      if (strpos($palavra1, $palavra2) !== false) {
-        echo "<h3>A palavra $palavra2 está contida na palavra $palavra1.</h3>";
-      } else {
-        echo "<h3>A palavra $palavra2 não está contida na palavra $palavra1.</h3>";
-      }
+      $palavra1 = (string) $_POST['palavra1'];
+      $palavra2 = (string) $_POST['palavra2'];
+      subpalavras($palavra1, $palavra2);
     } catch (Exception $e) {
       echo "Erro! " . $e->getMessage();
     }
