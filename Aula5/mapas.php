@@ -22,7 +22,7 @@
     print_r($mapa);
 
     //foreach($frutas as $valor);
-    foreach($frutas as $chave => $valor){
+    foreach($frutas as $chave => $valor){ //para cada posicão 'chave' do mapa 'frutas' pegar o valor 'valor' correspondente
         echo "<p>Na posição $chave temos a fruta: $valor.</p>";
     }
 
