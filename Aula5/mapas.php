@@ -16,6 +16,7 @@
 
     asort($frutas); //ordenar o mapa pelo valor
     #ksort($frutas); //ordenar o mapa pela chave
+    #arsort
 
     var_dump($cores);
     echo "<p></p>";
