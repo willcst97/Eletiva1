@@ -16,15 +16,31 @@
             <input type="text" name="fones[]" placeholder="Fone<?= $i ?>">
             <?php $contatos["nome$i"] = "Fone$i"; ?>
         <?php endfor; ?>
-        <button type="submit">Enviar</button>
+        <div class="row mt-4">
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </div>
     </form>
 
     <?php
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         try {
-            $valores = $_POST['nomes'];
-            foreach ($valores as $chave => $valor)
-                echo "<p>$chave : $valor</p>";
+            $nomes = $_POST['nomes'];
+            foreach ($nomes as $n) {
+                foreach ($nomes as $m) {
+                    if($n==$m){
+                        echo "<p>Na posição $chave temos a fruta: $valor.</p>";
+                    }
+                }
+            }
+            foreach ($nomes as $n) {
+                foreach ($nomes as $m) {
+                    if($n==$m){
+                        echo "<p>Na posição $chave temos a fruta: $valor.</p>";
+                    }
+                }
+            }
         } catch (Exception $e) {
             echo $e->getMessage();
         }
