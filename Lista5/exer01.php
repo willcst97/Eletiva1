@@ -12,9 +12,8 @@
     <h1>Exercício 1: mapa ordenado com nome e telefone</h1>
     <form action="" method="POST">
         <?php for ($i = 1; $i <= 5; $i++) : ?>
-            <input type="text" name="nomes[]" placeholder="Nome<?= $i ?>">
-            <input type="text" name="fones[]" placeholder="Fone<?= $i ?>">
-            <?php $contatos["nome$i"] = "Fone$i"; ?>
+            <input type="text" name="nomes[]" placeholder="Nome <?= $i ?>">
+            <input type="text" name="fones[]" placeholder="Fone <?= $i ?>">
         <?php endfor; ?>
         <div class="row mt-4">
             <div class="col">
@@ -30,16 +29,25 @@
             foreach ($nomes as $n) {
                 foreach ($nomes as $m) {
                     if($n==$m){
-                        echo "<p>Na posição $chave temos a fruta: $valor.</p>";
+                        echo "<p>$n é uma chave duplicada.</p>";
                     }
                 }
             }
-            foreach ($nomes as $n) {
-                foreach ($nomes as $m) {
-                    if($n==$m){
-                        echo "<p>Na posição $chave temos a fruta: $valor.</p>";
+            $fones = $_POST['fones'];
+            foreach ($fones as $a) {
+                foreach ($fones as $b) {
+                    if($a==$b){
+                        echo "<p>$a é uma chave duplicada.</p>";
                     }
                 }
+            }
+            $contatos = [];
+            for ($i = 1; $i <= 5; $i++){
+                $frutas[0] = "laranja";
+                $contatos
+            }
+            foreach($contatos as $nomes => $fones){
+                echo "<p>Na posição $nomes temos o telefone: $fones.</p>";
             }
         } catch (Exception $e) {
             echo $e->getMessage();
