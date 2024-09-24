@@ -53,7 +53,7 @@
             arsort($alunos);
             foreach ($alunos as $nome => $media) {
                 echo "<p>Aluno: $nome. Média: $media</p>";
-            }*/
+            }
         } catch (Exception $e) {
             echo $e->getMessage();
         }
