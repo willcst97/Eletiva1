@@ -14,12 +14,12 @@
         <?php for ($i = 1; $i <= 5; $i++) : ?>
             <input type="text" name="nomes[]" placeholder="Nome <?= $i ?>">
             <input type="text" name="fones[]" placeholder="Fone <?= $i ?>">
-        <?php endfor; ?>
-        <div class="row mt-4">
-            <div class="col">
-                <button type="submit" class="btn btn-primary">Enviar</button>
+            <?php endfor; ?>
+            <div class="row mt-4">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
             </div>
-        </div>
     </form>
 
     <?php
@@ -28,7 +28,7 @@
             $nomes = $_POST['nomes'];
             foreach ($nomes as $n) {
                 foreach ($nomes as $m) {
-                    if($n==$m){
+                    if ($n == $m) {
                         echo "<p>$n é uma chave duplicada.</p>";
                     }
                 }
@@ -36,17 +36,23 @@
             $fones = $_POST['fones'];
             foreach ($fones as $a) {
                 foreach ($fones as $b) {
-                    if($a==$b){
+                    if ($a == $b) {
                         echo "<p>$a é uma chave duplicada.</p>";
                     }
                 }
             }
             $contatos = [];
+            for ($i = 0; $i < count($nomes); $i++) {
+                if (!empty($nomes[$i]) && !empty($fones[$i])) {
+                    $contatos[$nomes[$i]] = $fones[$i];
+                }
+            }
+            /*$contatos = [];
             for ($i = 1; $i <= 5; $i++){
                 $frutas[0] = "laranja";
                 $contatos
-            }
-            foreach($contatos as $nomes => $fones){
+            }*/
+            foreach ($contatos as $nomes => $fones) {
                 echo "<p>Na posição $nomes temos o telefone: $fones.</p>";
             }
         } catch (Exception $e) {
