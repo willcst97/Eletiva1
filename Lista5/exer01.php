@@ -27,13 +27,13 @@
         try {
             $nomes = $_POST['nomes'];
             foreach ($nomes as $indice_n => $n) {
-            #foreach ($array as $chave => $valor) 
-            #$array: O array que está sendo percorrido.
-            #$chave: Armazena a chave atual (o índice do array, se for numérico, ou a chave de um array associativo).
-            #$valor: Armazena o valor correspondente à chave atual.
+                #foreach ($array as $chave => $valor) 
+                #$array: O array que está sendo percorrido.
+                #$chave: Armazena a chave atual (o índice do array, se for numérico, ou a chave de um array associativo).
+                #$valor: Armazena o valor correspondente à chave atual.
                 foreach ($nomes as $indice_m => $m) {
                     if ($indice_n !== $indice_m && $n == $m) {
-                        echo "<p>$n é uma chave duplicada.</p>";
+                        echo "<p>$n é um nome duplicado.</p>";
                     }
                 }
             }
@@ -42,16 +42,15 @@
             foreach ($fones as $indice_a => $a) {
                 foreach ($fones as $indice_b => $b) {
                     if ($indice_a !== $indice_b && $a == $b) {
-                        echo "<p>$a é um valor duplicado.</p>";
+                        echo "<p>$a é um telefone duplicado.</p>";
                     }
                 }
             }
             $contatos = [];
             for ($i = 0; $i < count($nomes); $i++) {
-                if (!empty($nomes[$i]) && !empty($fones[$i])) {
-                    $contatos[$nomes[$i]] = $fones[$i];
-                }
+                $contatos[$nomes[$i]] = $fones[$i];
             }
+
             foreach ($contatos as $nomes => $fones) {
                 echo "<p>Na posição $nomes temos o telefone: $fones.</p>";
             }
