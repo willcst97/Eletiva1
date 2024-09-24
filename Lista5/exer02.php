@@ -11,7 +11,7 @@
 <body class="container">
     <h1>Exercício 2: mapa ordenado com nomes e médias das notas.</h1>
     <form action="" method="POST">
-        <?php for ($i = 1; $i <= 5; $i++) : ?>
+        <?php for ($i = 1; $i <= 3; $i++) : ?>
             <div class="row mt-2">
                 <div class="row shadow p-3 mb-5 bg-body-tertiary rounded">
                     <h5 class="row mb-3"><?= $i ?>º aluno(a):</h5>
@@ -19,13 +19,13 @@
                         <input type="text" class="form-control" name="nomes[]" placeholder="Nome">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name="nomes[]" placeholder="Nota 1">
+                        <input type="number" class="form-control" name="nota1" placeholder="Nota 1">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name="nomes[]" placeholder="Nota 2">
+                        <input type="number" class="form-control" name="nota2" placeholder="Nota 2">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name="nomes[]" placeholder="Nota 3">
+                        <input type="number" class="form-control" name="nota3" placeholder="Nota 3">
                     </div>
                 </div>
             </div>
@@ -40,7 +40,10 @@
     <?php
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         try {
-
+            $nota1 = (float) $_POST['nota1'] ?? 0;
+            $nota2 = (float) $_POST['nota2'] ?? 0;
+            $nota3 = (float) $_POST['nota3'] ?? 0;
+            $media = ($nota1 + $nota2 + $nota3) / 3;
         } catch (Exception $e) {
             echo $e->getMessage();
         }
