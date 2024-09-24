@@ -47,10 +47,11 @@
             $alunos = [];
             for ($i = 0; $i < count($nomes); $i++) {
                 $media = ((float)$nota1[$i] + (float)$nota2[$i] + (float)$nota3[$i]) / 3;
-                $alunos[$nomes[$i]] = $media;
+                $alunos[$nomes[$i]] = number_format($media, 2, ',', '.');
             }
+            arsort($alunos);
             foreach ($alunos as $nome => $media) {
-                echo "<p>$nome : $media.</p>";
+                echo "<p>Aluno: $nome. Média: $media</p>";
             }
         } catch (Exception $e) {
             echo $e->getMessage();
