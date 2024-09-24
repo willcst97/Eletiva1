@@ -11,17 +11,17 @@
 <body class="container">
     <h1>Exercício 3: mapa ordenado códigos, nomes e preços.</h1>
     <form action="" method="POST">
-        <?php for ($i = 1; $i <= 5; $i++) : ?>
+        <?php for ($i = 1; $i <= 3; $i++) : ?>
             <div class="row mt-2">
                 <div class="row shadow p-3 mb-5 bg-body-tertiary rounded">
-                    <h5 class="row mb-3"><?= $i ?>º produto(a):</h5>
-                    <div class="col">
-                        <input type="text" class="form-control" name="codigos[]" placeholder="Código do produto">
+                    <h5 class="row mb-3"><?= $i ?>º produto:</h5>
+                    <div class="col-3">
+                        <input type="number" class="form-control" name="codigos[]" placeholder="Código do produto">
                     </div>
                     <div class="col">
                         <input type="number" class="form-control" name="nome[]" placeholder="Nome do produto">
                     </div>
-                    <div class="col">
+                    <div class="col-2">
                         <input type="number" class="form-control" name="preco[]" placeholder="Preço do produto">
                     </div>
                 </div>
@@ -38,22 +38,25 @@
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         try {
 
-            /*$nomes = $_POST['nomes'];
-            $nota1 = $_POST['nota1'];
-            $nota2 = $_POST['nota2'];
-            $nota3 = $_POST['nota3'];
-            $alunos = [];
+            $cod = $_POST['codigos'];
+            $nome = $_POST['nome'];
+            $preco = $_POST['preco'];
+            $produtos = [];
+            $prop_produtos = [];
             for ($i = 0; $i < count($nomes); $i++) {
-                $media = ((float)$nota1[$i] + (float)$nota2[$i] + (float)$nota3[$i]) / 3;
-                $alunos[$nomes[$i]] = number_format($media, 2, ',', '.');
+                if(preco >= 100){
+
+                }
+                /*$media = ((float)$nota1[$i] + (float)$nota2[$i] + (float)$nota3[$i]) / 3;
+                $alunos[$nomes[$i]] = number_format($media, 2, ',', '.');*/
             }
             arsort($alunos);
             foreach ($alunos as $nome => $media) {
                 echo "<p>Aluno: $nome. Média: $media</p>";
-            }
+            }*/
         } catch (Exception $e) {
             echo $e->getMessage();
-        }*/
+        }
     }
     ?>
 
