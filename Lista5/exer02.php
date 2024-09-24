@@ -19,13 +19,13 @@
                         <input type="text" class="form-control" name="nomes[]" placeholder="Nome">
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" name="nota1" placeholder="Nota 1">
+                        <input type="number" class="form-control" name="nota1[]" placeholder="Nota 1">
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" name="nota2" placeholder="Nota 2">
+                        <input type="number" class="form-control" name="nota2[]" placeholder="Nota 2">
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" name="nota3" placeholder="Nota 3">
+                        <input type="number" class="form-control" name="nota3[]" placeholder="Nota 3">
                     </div>
                 </div>
             </div>
@@ -40,10 +40,18 @@
     <?php
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         try {
-            $nota1 = (float) $_POST['nota1'] ?? 0;
-            $nota2 = (float) $_POST['nota2'] ?? 0;
-            $nota3 = (float) $_POST['nota3'] ?? 0;
-            $media = ($nota1 + $nota2 + $nota3) / 3;
+            $nomes = $_POST['nomes'];
+            $nota1 = $_POST['nota1'];
+            $nota2 = $_POST['nota2'];
+            $nota3 = $_POST['nota3'];
+            $alunos = [];
+            for ($i = 0; $i < count($nomes); $i++) {
+                $media = ((float)$nota1[$i] + (float)$nota2[$i] + (float)$nota3[$i]) / 3;
+                $alunos[$nomes[$i]] = $media;
+            }
+            foreach ($alunos as $nome => $media) {
+                echo "<p>$nome : $media.</p>";
+            }
         } catch (Exception $e) {
             echo $e->getMessage();
         }
