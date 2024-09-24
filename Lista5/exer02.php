@@ -11,7 +11,7 @@
 <body class="container">
     <h1>Exercício 2: mapa ordenado com nomes e médias das notas.</h1>
     <form action="" method="POST">
-        <?php for ($i = 1; $i <= 3; $i++) : ?>
+        <?php for ($i = 1; $i <= 5; $i++) : ?>
             <div class="row mt-2">
                 <div class="row shadow p-3 mb-5 bg-body-tertiary rounded">
                     <h5 class="row mb-3"><?= $i ?>º aluno(a):</h5>
