@@ -14,30 +14,35 @@
         <?php for ($i = 1; $i <= 5; $i++) : ?>
             <input type="text" name="nomes[]" placeholder="Nome <?= $i ?>">
             <input type="text" name="fones[]" placeholder="Fone <?= $i ?>">
-            <?php endfor; ?>
-            <div class="row mt-4">
-                <div class="col">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </div>
+        <?php endfor; ?>
+        <div class="row mt-4 mb-4">
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
+        </div>
     </form>
 
     <?php
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         try {
             $nomes = $_POST['nomes'];
-            foreach ($nomes as $n) {
-                foreach ($nomes as $m) {
-                    if ($n == $m) {
+            foreach ($nomes as $indice_n => $n) {
+            #foreach ($array as $chave => $valor) 
+            #$array: O array que está sendo percorrido.
+            #$chave: Armazena a chave atual (o índice do array, se for numérico, ou a chave de um array associativo).
+            #$valor: Armazena o valor correspondente à chave atual.
+                foreach ($nomes as $indice_m => $m) {
+                    if ($indice_n !== $indice_m && $n == $m) {
                         echo "<p>$n é uma chave duplicada.</p>";
                     }
                 }
             }
+
             $fones = $_POST['fones'];
-            foreach ($fones as $a) {
-                foreach ($fones as $b) {
-                    if ($a == $b) {
-                        echo "<p>$a é uma chave duplicada.</p>";
+            foreach ($fones as $indice_a => $a) {
+                foreach ($fones as $indice_b => $b) {
+                    if ($indice_a !== $indice_b && $a == $b) {
+                        echo "<p>$a é um valor duplicado.</p>";
                     }
                 }
             }
@@ -47,11 +52,6 @@
                     $contatos[$nomes[$i]] = $fones[$i];
                 }
             }
-            /*$contatos = [];
-            for ($i = 1; $i <= 5; $i++){
-                $frutas[0] = "laranja";
-                $contatos
-            }*/
             foreach ($contatos as $nomes => $fones) {
                 echo "<p>Na posição $nomes temos o telefone: $fones.</p>";
             }
