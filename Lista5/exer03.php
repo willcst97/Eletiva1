@@ -16,13 +16,13 @@
                 <div class="row shadow p-3 mb-5 bg-body-tertiary rounded">
                     <h5 class="row mb-3"><?= $i ?>º produto:</h5>
                     <div class="col-3">
-                        <input type="number" class="form-control" name="codigos[]" placeholder="Código">
+                        <input type="text" class="form-control" name="codigos[]" placeholder="Código">
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" name="nome[]" placeholder="Nome">
+                        <input type="text" class="form-control" name="nome[]" placeholder="Nome">
                     </div>
                     <div class="col-2">
-                        <input type="number" class="form-control" name="preco[]" placeholder="Preço">
+                        <input type="text" class="form-control" name="preco[]" placeholder="Preço">
                     </div>
                 </div>
             </div>
@@ -37,7 +37,6 @@
     <?php
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         try {
-
             $cods = $_POST['codigos'];
             $nomes = $_POST['nome'];
             $precos = $_POST['preco'];
@@ -46,11 +45,13 @@
                 if ($precos[$i] > 100) {
                     $precos[$i] = $precos[$i] - ($precos[$i] * 0.10);
                 }
-                $produtos[$codigos[$i]] = ['nome' => $nomes[$i], 'preco' => $precos[$i]];
+                $produtos[$cods[$i]] = ['nome' => $nomes[$i], 'preco' => $precos[$i]];
             }
-            arsort($alunos);
-            foreach ($alunos as $nome => $media) {
-                echo "<p>Aluno: $nome. Média: $media</p>";
+            uasort($produtos, function($a, $b) {
+                return strcmp($a['nome'], $b['nome']);
+            });
+            foreach ($produtos as $codigo => $valor) {
+                echo "<p>Código: $codigo | Nome: {$valor['nome']} | Preço: R$ " . number_format($valor['preco'], 2, ',', '.') . "</p>";
             }
         } catch (Exception $e) {
             echo $e->getMessage();
