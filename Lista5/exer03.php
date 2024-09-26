@@ -16,13 +16,13 @@
                 <div class="row shadow p-3 mb-5 bg-body-tertiary rounded">
                     <h5 class="row mb-3"><?= $i ?>º produto:</h5>
                     <div class="col-3">
-                        <input type="number" class="form-control" name="codigos[]" placeholder="Código do produto">
+                        <input type="number" class="form-control" name="codigos[]" placeholder="Código">
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" name="nome[]" placeholder="Nome do produto">
+                        <input type="number" class="form-control" name="nome[]" placeholder="Nome">
                     </div>
                     <div class="col-2">
-                        <input type="number" class="form-control" name="preco[]" placeholder="Preço do produto">
+                        <input type="number" class="form-control" name="preco[]" placeholder="Preço">
                     </div>
                 </div>
             </div>
@@ -38,17 +38,15 @@
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         try {
 
-            $cod = $_POST['codigos'];
-            $nome = $_POST['nome'];
-            $preco = $_POST['preco'];
+            $cods = $_POST['codigos'];
+            $nomes = $_POST['nome'];
+            $precos = $_POST['preco'];
             $produtos = [];
-            $prop_produtos = [];
             for ($i = 0; $i < count($nomes); $i++) {
-                if(preco >= 100){
-
+                if ($precos[$i] > 100) {
+                    $precos[$i] = $precos[$i] - ($precos[$i] * 0.10);
                 }
-                /*$media = ((float)$nota1[$i] + (float)$nota2[$i] + (float)$nota3[$i]) / 3;
-                $alunos[$nomes[$i]] = number_format($media, 2, ',', '.');*/
+                $produtos[$codigos[$i]] = ['nome' => $nomes[$i], 'preco' => $precos[$i]];
             }
             arsort($alunos);
             foreach ($alunos as $nome => $media) {
