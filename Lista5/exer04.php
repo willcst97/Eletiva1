@@ -11,7 +11,7 @@
 <body class="container">
     <h1>Exercício 4: mapa ordenado com nomes e preços acrescidos de imposto.</h1>
     <form action="" method="POST">
-        <?php for ($i = 1; $i <= 3; $i++) : ?>
+        <?php for ($i = 1; $i <= 5; $i++) : ?>
             <div class="row mt-2">
                 <div class="row shadow p-3 mb-5 bg-body-tertiary rounded">
                     <h5 class="row mb-3"><?= $i ?>º produto:</h5>
@@ -35,19 +35,15 @@
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         try {
             $nomes = $_POST['nomes'];
-            $precos = (float) $_POST['precos'];
+            $precos = $_POST['precos'];
             $produtos = [];
             for ($i = 0; $i < count($nomes); $i++) {
-                $preco = $precos[$i] + ($precos[$i] * 0.15);
+                $preco = (float)$precos[$i] + ((float)$precos[$i] * 0.15);
                 $produtos[$nomes[$i]] = number_format($preco, 2, ',', '.');
-            }
-            arsort($alunos);
-            foreach ($alunos as $nome => $media) {
-                echo "<p>Aluno: $nome. Média: $media</p>";
             }
             ksort($produtos);
             foreach ($produtos as $nomes => $precos) {
-                echo "<p>Produto: $nomes | Preço + 15%: R$ ".number_format($precos, 2, ',', '.').".</p>";
+                echo "<p>Produto: $nomes | Preço + 15%: R$ $precos.</p>";
             }
         } catch (Exception $e) {
             echo $e->getMessage();
