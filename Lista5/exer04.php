@@ -41,7 +41,7 @@
                 $preco = (float)$precos[$i] + ((float)$precos[$i] * 0.15);
                 $produtos[$nomes[$i]] = number_format($preco, 2, ',', '.');
             }
-            ksort($produtos);
+            asort($produtos);
             foreach ($produtos as $nomes => $precos) {
                 echo "<p>Produto: $nomes | Preço + 15%: R$ $precos.</p>";
             }

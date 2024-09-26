@@ -38,11 +38,15 @@
             $qtd = $_POST['qtd'];
             $livros = [];
             for ($i = 0; $i < count($nomes); $i++) {
-                $livros[$nomes[$i]] = $qtd;
+                $livros[$nomes[$i]] = (float)$qtd[$i];
             }
-            ksort($produtos);
-            foreach ($produtos as $nomes => $precos) {
-                echo "<p>Produto: $nomes | Preço + 15%: R$ $precos.</p>";
+            ksort($livros);
+            foreach ($livros as $nomes => $qtd) {
+                if ($qtd < 5) {
+                    echo "<p>Produto: $nomes | Quantidade: $qtd. ATENÇÃO: Quantidade menor que 5!</p>";
+                } else {
+                    echo "<p>Produto: $nomes | Quantidade: $qtd.</p>";
+                }
             }
         } catch (Exception $e) {
             echo $e->getMessage();
