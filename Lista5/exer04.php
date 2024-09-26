@@ -35,15 +35,19 @@
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
         try {
             $nomes = $_POST['nomes'];
-            $precos = $_POST['precos'];
+            $precos = (float) $_POST['precos'];
             $produtos = [];
             for ($i = 0; $i < count($nomes); $i++) {
-                $precos[$i] = $precos[$i] + ($precos[$i] * 0.15);
-                $produtos[$nomes] = number_format($precos, 2, ',', '.');
+                $preco = $precos[$i] + ($precos[$i] * 0.15);
+                $produtos[$nomes[$i]] = number_format($preco, 2, ',', '.');
+            }
+            arsort($alunos);
+            foreach ($alunos as $nome => $media) {
+                echo "<p>Aluno: $nome. Média: $media</p>";
             }
             ksort($produtos);
-            foreach ($produtos as $codigo => $valor) {
-                echo "<p></p>";
+            foreach ($produtos as $nomes => $precos) {
+                echo "<p>Produto: $nomes | Preço + 15%: R$ ".number_format($precos, 2, ',', '.').".</p>";
             }
         } catch (Exception $e) {
             echo $e->getMessage();
