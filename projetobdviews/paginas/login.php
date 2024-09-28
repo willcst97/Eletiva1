@@ -2,7 +2,7 @@
 
 <div class="container mt-5">
     <form method="post" action="dashboard.php">
-        <div class="row shadow p-3 mb-5 bg-body-tertiary rounded position-relative">
+        <div class="row shadow p-3 mb-5 bg-body-tertiary rounded position-relative mx-auto custom-max-width">
             <h2>Login</h2>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
