@@ -1,3 +1,10 @@
+<?php 
+  session_start();
+  if (!isset($_SESSION['acesso'])) {
+    header('Location: login.php');
+  }
+?>
+
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="/dashboard">Sistema de Compras de Produtos</a>
@@ -8,7 +15,7 @@
       <ul class="navbar-nav">
 
         <!-- Após desenvolver o código em PHP, essa funcionalidade só será visível ao administrador -->
-         <!-- Início -->
+        <!-- Início -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Usuários
@@ -17,7 +24,7 @@
             <li><a class="dropdown-item" href="usuarios.php">Gerenciar</a></li>
           </ul>
         </li>
-         <!-- Fim -->
+        <!-- Fim -->
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,22 +56,21 @@
       </ul>
 
       <ul class="navbar-nav ms-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Seja bem vindo(a)
-                    <?php
-                      session_start();
-                      if(isset($_SESSION['usuario'])){
-                        echo $_SESSION['usuario'];
-                      }
-                    ?>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="editar_usuario.php">Editar dados</a></li>
-                    <li><a class="dropdown-item" href="logout.php">Sair</a></li>
-                </ul>
-            </li>
-        </ul>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Seja bem vindo(a)
+            <?php
+            if (isset($_SESSION['usuario'])) {
+              echo $_SESSION['usuario'];
+            }
+            ?>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="editar_usuario.php">Editar dados</a></li>
+            <li><a class="dropdown-item" href="logout.php">Sair</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

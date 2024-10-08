@@ -1,9 +1,9 @@
 <?php
 session_start();
 if ($_SERVER['REQUEST_METHOD']=="POST"){
-    try{
-        $email = $_POST['email'] ?? "";
-        $senha = $_POST['senha'] ?? "";
+    try {
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
         if ($email != "" && $senha != ""){
             if ($email == "adm@adm.com" && $senha == '123'){
                 $_SESSION['usuario'] = "Administrador";
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD']=="POST"){
 require_once 'cabecalho.php'; ?>
 
 <div class="container mt-5">
-    <form method="post">
+    <form method="POST">
         <div class="row shadow p-3 mb-5 bg-body-tertiary rounded position-relative mx-auto custom-max-width">
             <h2>Login</h2>
             <div class="mb-3">
