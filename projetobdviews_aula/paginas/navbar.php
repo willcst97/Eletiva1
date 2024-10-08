@@ -51,7 +51,13 @@
       <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Seja bem vindo(a) Usuário
+                    Seja bem vindo(a)
+                    <?php
+                      session_start();
+                      if(isset($_SESSION['usuario'])){
+                        echo $_SESSION['usuario'];
+                      }
+                    ?>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="editar_usuario.php">Editar dados</a></li>
