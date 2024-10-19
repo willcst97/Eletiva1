@@ -26,4 +26,7 @@ c.acao();
 em PHP:
 $c = new Classe();
 $c->acao();
+
+iniciar workbench, botão direito na casinha, criar base de dados banco_php, usar base de daos bonco_php, executar cód estrutura_banco
+
 -->
