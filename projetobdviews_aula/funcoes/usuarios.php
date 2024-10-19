@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once('.../config/bancodedados.php');
+require_once('../config/bancodedados.php');
 
 function login(string $email, string $senha)
 {
@@ -21,8 +21,12 @@ function login(string $email, string $senha)
 
     //verificar email e senha do usuário
     $stament =
-        $pdo->prepare("SELECT * FROM usuario WHERE email = ? AND senha = ?"); //validar os valores com EXPRESSÔES REGULARES - validar se é um email
-    $stament->execute([$email, $senha]);
+        $pdo->prepare("SELECT * FROM usuario WHERE email = ?"); //validar os valores com EXPRESSÔES REGULARES - validar se é um email
+    $stament->execute([$email]);
     $usuario = $stament->fetch(PDO::FETCH_ASSOC);
-    return $usuario ? $usuario : null;
+    if($usuario && password_verify($senha, $usuario['senha'])){
+        return $usuario;
+    } else {
+        return null;
+    }
 }
