@@ -5,10 +5,36 @@
     require_once '../funcoes/categorias.php';
 
     $categorias = buscarCategorias();
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        try{
+            $nome = $_POST['nome'];
+            $descricao = $_POST['descricao'];
+            $preco = floatval($_POST['preco']);
+            $estoque_minimo = intval($_POST['estoque_minimo']);
+            $categoria_id = intval($_POST['categoria_id']);
+            if (empty($nome) || $empty($descricao)){
+                $erro = "Informe os valores obrigatórios!";
+            } else {
+                if (criarProduto($nome, $descricao, $preco, $estoque_minimo, $categoria_id)){
+                    header('Location : produtos.php');
+                    exit();
+                } else { 
+                    $erro = "Erro ao inserir o produto!";
+                }
+            }
+        } catch (Exception $e){
+            $erro = "Erro: ".$e->getMessage();
+        }
+    }
 ?>
 
 <div class="container mt-5">
     <h2>Criar Novo Produto</h2>
+
+    <?php if(!empty($erro)):?>
+        <p class="text-danger"><?= $erro ?></p>
+    <?php endif; ?>
 
     <form method="post">
         <div class="mb-3">
