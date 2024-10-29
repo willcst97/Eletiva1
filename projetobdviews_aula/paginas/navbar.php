@@ -1,8 +1,8 @@
 <?php
-session_start();
-if (!isset($_SESSION['acesso'])) {
-  header('Location: login.php');
-}
+    session_start();
+    if(!isset($_SESSION['acesso'])){
+        header('Location: login.php');        
+    }
 ?>
 
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -15,8 +15,10 @@ if (!isset($_SESSION['acesso'])) {
       <ul class="navbar-nav">
 
         <!-- Após desenvolver o código em PHP, essa funcionalidade só será visível ao administrador -->
-        <!-- Início -->
-        <?php if ($_SESSION['nivel'] == 'adm'): ?>
+         <!-- Início -->
+        <?php
+          if ($_SESSION['nivel'] == 'adm'):
+        ?>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Usuários
@@ -25,8 +27,10 @@ if (!isset($_SESSION['acesso'])) {
               <li><a class="dropdown-item" href="usuarios.php">Gerenciar</a></li>
             </ul>
           </li>
-        <?php endif; ?>
-        <!-- Fim -->
+        <?php
+          endif;
+        ?>
+         <!-- Fim -->
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -58,21 +62,20 @@ if (!isset($_SESSION['acesso'])) {
       </ul>
 
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Seja bem vindo(a)
-            <?php
-            if (isset($_SESSION['usuario'])) {
-              echo $_SESSION['usuario'];
-            }
-            ?>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="editar_usuario.php">Editar dados</a></li>
-            <li><a class="dropdown-item" href="logout.php">Sair</a></li>
-          </ul>
-        </li>
-      </ul>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Seja bem vindo(a) 
+                    <?php
+                      if (isset($_SESSION['usuario']))
+                        echo $_SESSION['usuario'];
+                    ?>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="editar_usuario.php">Editar dados</a></li>
+                    <li><a class="dropdown-item" href="logout.php">Sair</a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
   </div>
 </nav>

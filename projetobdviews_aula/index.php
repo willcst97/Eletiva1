@@ -1,3 +1,3 @@
 <?php
 
-    header('Location: projetobdviews/paginas/login.php');
+    header('Location: paginas/login.php');
