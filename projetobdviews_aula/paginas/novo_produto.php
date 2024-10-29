@@ -57,7 +57,7 @@
             <label for="categoria_id" class="form-label">Categoria</label>
             <select name="categoria_id" id="categoria_id" class="form-select" required>
                 <?php foreach($categorisas as $c) : ?>
-                <option value="<?= $c['id']?>"><?= $c['nome']?></option>
+                <option value="<?= $c['id'] ?>"><?= $c['nome'] ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
