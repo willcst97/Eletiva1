@@ -16,15 +16,22 @@
         return $produto ? $produto : null;
     }
 
-    function criarProduto(string $nome, string $descricao, float $preco, int $estoque_min, int $categoria_id): bool {
-
+    function criarProduto(string $nome, string $descricao, float $preco, int $estoque_minimo, int $categoria_id): bool {
+        global $pdo;
+        $stmt = $pdo->preprare("INSERT INTO produto (nome, descricao, preco, estoque_minimo, categoria_id) VALUES (?, ?, ?, ?, ?)");
+        return $stmt->execute([$nome, $descricao, $preco, $estoque_minimo, $categoria_id]);
     }
 
-    function alterarProduto(int $id, string $nome, string $descricao, float $preco, int $estoque_min, int $categoria_id): bool {
-
+    function alterarProduto(int $id, string $nome, string $descricao, float $preco, int $estoque_minimo, int $categoria_id): bool {
+        global $pdo;
+        $stmt = $pdo->prepare("UPDATE produto SET nome = ?, descricao = ?, preco = ?, estoque_minimo = ?, categoria_id = ? WHERE id = ?");
+        return $stmt->execute([$nome, $descricao, $preco, $estoque_minimo, $categoria_id, $id]);
     }
+    
 
     function excluirProduto(int $id): bool {
-
+        global $pdo;
+        $stmt = $pdo->prepare("DELETE FROM produto WHERE id = ?");
+        return $stmt->execute([$id]);
     }
 ?>
