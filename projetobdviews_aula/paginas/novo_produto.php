@@ -1,6 +1,10 @@
 <?php 
     require_once 'cabecalho.php'; 
     require_once 'navbar.php';
+    require_once '../funcoes/produtos.php';
+    require_once '../funcoes/categorias.php';
+
+    $categorias = buscarCategorias();
 ?>
 
 <div class="container mt-5">
@@ -26,7 +30,9 @@
         <div class="mb-3">
             <label for="categoria_id" class="form-label">Categoria</label>
             <select name="categoria_id" id="categoria_id" class="form-select" required>
-                    <option value="1">Categoria</option>
+                <?php foreach($categorisas as $c) : ?>
+                <option value="<?= $c['id']?>"><?= $c['nome']?></option>
+                <?php endforeach; ?>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Criar Produto</button>
