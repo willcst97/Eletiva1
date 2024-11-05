@@ -10,7 +10,7 @@
 
     function buscarProdutoPorId(int $id): ?array {
         global $pdo;
-        $stmt = $pdo->prepare("SELECT p.*, c.nome as nome_categoria FROM produto p INNER JOIN categoria c ON c.id = p.cateria_id WHERE p.id = ?");
+        $stmt = $pdo->prepare("SELECT p.*, c.nome as nome_categoria FROM produto p INNER JOIN categoria c ON c.id = p.categoria_id WHERE p.id = ?");
         $stmt->execute([$id]);
         $produto = $stmt->fetch(PDO::FETCH_ASSOC);
         return $produto ? $produto : null;
