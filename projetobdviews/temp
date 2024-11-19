@@ -1,0 +1,130 @@
+<?php
+
+declare(strict_types=1);
+
+require_once '../config/bancodedados.php';
+
+// Função para gerar dados para gráfico (ajuste conforme a necessidade)
+function gerarDadosGrafico(): array
+{
+    global $pdo;
+    // Ajuste a consulta para refletir a estrutura correta, caso haja necessidade de incluir mais tabelas ou dados específicos
+    // Esta função pode ser removida ou ajustada conforme o seu objetivo.
+    // Exemplo para algo relacionado a animais, caso seja necessário:
+    // $stmt = $pdo->query("SELECT a.id, a.nome, a.idade, c.nome as categoria_nome, o.nome as ong_nome FROM animal a
+    //                      INNER JOIN categoria c ON a.categoria_id = c.id
+    //                      INNER JOIN ong o ON a.ong_id = o.id");
+    // return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return []; // Exemplo sem dados reais.
+}
+
+// Função para buscar todos os animais
+function buscarAnimais(): array
+{
+    global $pdo;
+    $stmt = $pdo->query("SELECT a.*, c.nome as nome_categoria, o.nome as nome_ong FROM animal a
+                        INNER JOIN categoria c ON c.id = a.categoria_id
+                        INNER JOIN ong o ON o.id = a.ong_id");
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Função para buscar um animal pelo ID
+function buscarAnimalPorId(int $id): ?array
+{
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT a.*, c.nome as nome_categoria, o.nome as nome_ong FROM animal a
+                            INNER JOIN categoria c ON c.id = a.categoria_id
+                            INNER JOIN ong o ON o.id = a.ong_id WHERE a.id = ?");
+    $stmt->execute([$id]);
+    $animal = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $animal ? $animal : null;
+}
+
+// Função para criar um novo animal
+function criarAnimal(string $nome, string $descricao, int $idade, int $categoria_id, int $ong_id): bool
+{
+    global $pdo;
+    $stmt = $pdo->prepare("INSERT INTO animal (nome, descricao, idade, categoria_id, ong_id) VALUES (?, ?, ?, ?, ?)");
+    return $stmt->execute([$nome, $descricao, $idade, $categoria_id, $ong_id]);
+}
+
+// Função para alterar um animal existente
+function alterarAnimal(int $id, string $nome, string $descricao, int $idade, int $categoria_id, int $ong_id): bool
+{
+    global $pdo;
+    $stmt = $pdo->prepare("UPDATE animal SET nome = ?, descricao = ?, idade = ?, categoria_id = ?, ong_id = ? WHERE id = ?");
+    return $stmt->execute([$nome, $descricao, $idade, $categoria_id, $ong_id, $id]);
+}
+
+// Função para excluir um animal
+function excluirAnimal(int $id): bool
+{
+    global $pdo;
+    $stmt = $pdo->prepare("DELETE FROM animal WHERE id = ?");
+    return $stmt->execute([$id]);
+}
+?>
+
+<!-- ************************************************************* -->
+
+<?php
+
+declare(strict_types=1);
+
+require_once '../config/bancodedados.php';
+
+// Função para gerar dados para gráfico (ajuste conforme a necessidade)
+function gerarDadosGrafico(): array
+{
+    global $pdo;
+    // Caso você queira fazer algo relacionado aos animais e suas adoções ou outras estatísticas, 
+    // você pode modificar essa função para coletar dados apropriados. Aqui é um exemplo genérico.
+    return []; // Exemplo sem dados reais.
+}
+
+// Função para buscar todos os animais
+function buscarAnimais(): array
+{
+    global $pdo;
+    $stmt = $pdo->query("SELECT a.*, t.nome as nome_tipo, o.nome as nome_ong FROM animal a
+                        INNER JOIN tipo t ON t.id = a.tipo_id
+                        INNER JOIN ong o ON o.id = a.ong_id");
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Função para buscar um animal pelo ID
+function buscarAnimalPorId(int $id): ?array
+{
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT a.*, t.nome as nome_tipo, o.nome as nome_ong FROM animal a
+                            INNER JOIN tipo t ON t.id = a.tipo_id
+                            INNER JOIN ong o ON o.id = a.ong_id WHERE a.id = ?");
+    $stmt->execute([$id]);
+    $animal = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $animal ? $animal : null;
+}
+
+// Função para criar um novo animal
+function criarAnimal(string $nome, string $descricao, int $idade, int $tipo_id, int $ong_id): bool
+{
+    global $pdo;
+    $stmt = $pdo->prepare("INSERT INTO animal (nome, descricao, idade, tipo_id, ong_id) VALUES (?, ?, ?, ?, ?)");
+    return $stmt->execute([$nome, $descricao, $idade, $tipo_id, $ong_id]);
+}
+
+// Função para alterar um animal existente
+function alterarAnimal(int $id, string $nome, string $descricao, int $idade, int $tipo_id, int $ong_id): bool
+{
+    global $pdo;
+    $stmt = $pdo->prepare("UPDATE animal SET nome = ?, descricao = ?, idade = ?, tipo_id = ?, ong_id = ? WHERE id = ?");
+    return $stmt->execute([$nome, $descricao, $idade, $tipo_id, $ong_id, $id]);
+}
+
+// Função para excluir um animal
+function excluirAnimal(int $id): bool
+{
+    global $pdo;
+    $stmt = $pdo->prepare("DELETE FROM animal WHERE id = ?");
+    return $stmt->execute([$id]);
+}
+?>

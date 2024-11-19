@@ -4,9 +4,9 @@
 
     require_once "../config/bancodedados.php";
 
-    function buscarCategorias() : array{
+    function buscarTipos() : array{
         global $pdo;
-        $stmt = $pdo->query("SELECT * FROM categoria");
+        $stmt = $pdo->query("SELECT * FROM tipo");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+?>
