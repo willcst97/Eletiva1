@@ -9,3 +9,4 @@
         $stmt = $pdo->query("SELECT * FROM categoria");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    
