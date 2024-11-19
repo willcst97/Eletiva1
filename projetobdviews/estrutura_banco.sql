@@ -1,3 +1,6 @@
+CREATE DATABASE banco_php;
+USE banco_php;
+
 CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
@@ -6,25 +9,44 @@ CREATE TABLE usuario (
     nivel ENUM('adm', 'colab') NOT NULL
 );
 
-CREATE TABLE categoria (
+CREATE TABLE tipo (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE produto (
+CREATE TABLE ong (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    endereco TEXT,
+    fone VARCHAR(11) NOT NULL
+);
+
+CREATE TABLE adotante (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    endereco TEXT,
+    idade INT,
+    fone VARCHAR(11) NOT NULL
+);
+
+CREATE TABLE animal (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     descricao TEXT,
-    preco DECIMAL(10, 2) NOT NULL,
-    estoque_minimo INT NOT NULL,
-    categoria_id INT,
-    FOREIGN KEY (categoria_id) REFERENCES categoria(id)
+    idade INT,
+    tipo_id INT,
+    ong_id INT,
+    FOREIGN KEY (tipo_id) REFERENCES tipo(id),
+    FOREIGN KEY (ong_id) REFERENCES ong(id)
 );
 
-CREATE TABLE compra (
+CREATE TABLE adocao (
     id INT AUTO_INCREMENT PRIMARY KEY,
     data DATETIME NOT NULL,
-    produto_id INT,
-    quantidade INT NOT NULL,
-    FOREIGN KEY (produto_id) REFERENCES produto(id)
+    adotante_id INT NOT NULL,
+    animal_id INT NOT NULL,
+    aprovacao_ong INT NOT NULL,
+    ressalva TEXT,
+    FOREIGN KEY (adotante_id) REFERENCES adotante(id),
+    FOREIGN KEY (animal_id) REFERENCES animal(id)
 );
