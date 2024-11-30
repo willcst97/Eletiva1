@@ -1,15 +1,15 @@
 <?php
 
-    require_once 'cabecalho.php'; 
-    require_once 'navbar.php';
-    require_once '../funcoes/adocoes.php';
+require_once 'cabecalho.php'; 
+require_once 'navbar.php';
+require_once '../funcoes/adocoes.php';
 
-    $dados = gerarDadosGrafico();
+$dados_adocoes = buscarDadosDeAdocoes();
 ?>
 
 <main class="container">
     <div class="container mt-5">
-        <h2>Dashboard</h2>
+        <h2>Dashboard de Adoção de Pets</h2>
 
         <!-- Div onde o gráfico será renderizado -->
         <div id="chart_div" style="width: 100%; height: 500px;"></div>
@@ -23,18 +23,19 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
-            // Array de dados que será usado no gráfico
-            var data = google.visualization.arrayToDataTable([
-                ['Produto', 'Estoque Comprado', { role: 'style' }],
-                <?php foreach ($dados as $d): ?>
-                    ['<?= $d['nome'] ?>', <?= $d['estoque'] ?>, 'magenta'],
-                <?php endforeach; ?>
-            ]);
+            // Dados que podem ser recuperados do seu banco de dados
+            var dados = <?php echo json_encode($dados_adocoes); ?>;
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Mês');
+            data.addColumn('number', 'Adoções');
+            dados.forEach(function(dado) {
+                data.addRow([dado.mes, parseInt(dado.total)]);
+            });
 
             // Opções de customização do gráfico
             var options = {
-                title: 'Estoque de Produtos Comprados',
-                hAxis: {title: 'Produtos',  titleTextStyle: {color: '#333'}},
+                title: 'Número de Adoções por Mês',
+                hAxis: {title: 'Meses',  titleTextStyle: {color: '#333'}},
                 vAxis: {minValue: 0},
                 chartArea: {width: '70%', height: '70%'}
             };

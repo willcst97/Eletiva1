@@ -8,7 +8,7 @@
 
 <div class="container mt-5">
     <h2>Gerenciamento de Animais</h2>
-    <a href="novo_produto.php" class="btn btn-success mb-3">Cadastrar Animal</a>
+    <a href="novo_animal.php" class="btn btn-success mb-3">Cadastrar Animal</a>
     <table class="table table-hover table-striped">
         <thead>
             <tr>

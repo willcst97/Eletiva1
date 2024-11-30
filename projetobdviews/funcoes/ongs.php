@@ -4,44 +4,39 @@ declare(strict_types=1);
 
 require_once '../config/bancodedados.php';
 
-function buscarAnimais(): array
+function buscarOngs(): array
 {
     global $pdo;
-    $stmt = $pdo->query("SELECT animal.*, tipo.nome as tipo_nome, ong.nome as ong_nome FROM animal
-                        INNER JOIN tipo ON tipo.id = animal.tipo_id
-                        INNER JOIN ong ON ong.id = animal.ong_id");
+    $stmt = $pdo->query("SELECT * FROM ong");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function buscarAnimalPorId(int $id): ?array
+function buscarOngPorId(int $id): ?array
 {
     global $pdo;
-    $stmt = $pdo->prepare("SELECT animal.*, tipo.nome as tipo_nome, ong.nome as ong_nome FROM animal
-                            INNER JOIN tipo ON tipo.id = animal.tipo_id
-                            INNER JOIN ong ON ong.id = animal.ong_id
-                            WHERE animal.id = ?");
+    $stmt = $pdo->prepare("SELECT * FROM ong WHERE id = ?");
     $stmt->execute([$id]);
-    $animal = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $animal ? $animal : null;
+    $ong = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $ong ? $ong : null;
 }
 
-function criarAnimal(string $nome, string $descricao, int $idade, int $tipo_id, int $ong_id): bool
+function criarOng(string $nome, string $endereco, string $fone, string $email): bool
 {
     global $pdo;
-    $stmt = $pdo->prepare("INSERT INTO animal (nome, descricao, idade, tipo_id, ong_id) VALUES (?, ?, ?, ?, ?)");
-    return $stmt->execute([$nome, $descricao, $idade, $tipo_id, $ong_id]);
+    $stmt = $pdo->prepare("INSERT INTO ong (nome, endereco, fone, email) VALUES (?, ?, ?, ?)");
+    return $stmt->execute([$nome, $endereco, $fone, $email]);
 }
 
-function alterarAnimal(int $id, string $nome, string $descricao, int $idade, int $tipo_id, int $ong_id): bool
+function alterarOng(int $id, string $nome, string $endereco, string $fone, string $email): bool
 {
     global $pdo;
-    $stmt = $pdo->prepare("UPDATE animal SET nome = ?, descricao = ?, idade = ?, tipo_id = ?, ong_id = ? WHERE id = ?");
-    return $stmt->execute([$nome, $descricao, $idade, $tipo_id, $ong_id, $id]);
+    $stmt = $pdo->prepare("UPDATE ong SET nome = ?, endereco = ?, fone = ?, email = ? WHERE id = ?");
+    return $stmt->execute([$nome, $endereco, $fone, $email, $id]);
 }
 
-function excluirAnimal(int $id): bool
+function excluirOng(int $id): bool
 {
     global $pdo;
-    $stmt = $pdo->prepare("DELETE FROM animal WHERE id = ?");
+    $stmt = $pdo->prepare("DELETE FROM ong WHERE id = ?");
     return $stmt->execute([$id]);
 }
