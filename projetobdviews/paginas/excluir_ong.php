@@ -1,17 +1,17 @@
 <?php 
     require_once 'cabecalho.php'; 
     require_once 'navbar.php';
-    require_once '../funcoes/ongs.php';
+    require_once '../funcoes/adocoes.php';
 
-    $id = $_GET['id'];
+    $id = $_GET['id'] ?? null;
     if (!$id){
-        header('Location: ongs.php');
+        header('Location: adocoes.php');
         exit();
     }
 
-    $ong = buscarOngPorId($id);
-    if (!$ong){
-        header('Location: ongs.php');
+    $adocao = buscarAdocaoPorId($id);
+    if (!$adocao){
+        header('Location: adocoes.php');
         exit();
     }
 
@@ -21,35 +21,37 @@
         try {
             $id = intval($_POST['id']);
             if (empty($id)){
-                header('Location: ongs.php');
+                header('Location: adocoes.php');
                 exit();
             } else{
-                if (excluirOng($id)){
-                    header('Location: ongs.php');
+                if (excluirAdocao($id)){
+                    header('Location: adocoes.php');
                     exit();
                 } else {
-                    $erro = "Erro ao excluir a ONG!"; 
+                    $erro = "Erro ao excluir a adoção!"; 
                 }
             }
         } catch (Exception $e) {
-            $erro = "Erro: ".$e->getMessage();
+            $erro = "Erro: " . $e->getMessage();
         }
     }
 ?>
 
 <div class="container mt-5">
-    <h2>Excluir ONG</h2>
+    <h2>Excluir Adoção</h2>
     
-    <p>Tem certeza de que deseja excluir a ONG abaixo?</p>
+    <p>Tem certeza de que deseja excluir a adoção abaixo?</p>
     <ul>
-        <li><strong>Nome:</strong> <?= $ong['nome'] ?></li>
-        <li><strong>Endereço:</strong> <?= $ong['endereco'] ?></li>
-        <li><strong>Telefone:</strong> <?= $ong['fone'] ?></li>
+        <li><strong>Data:</strong> <?= (new DateTime($adocao['data']))->format('d/m/Y') ?></li>
+        <li><strong>Adotante:</strong> <?= $adocao['adotante_nome'] ?></li>
+        <li><strong>Animal:</strong> <?= $adocao['animal_nome'] ?></li>
+        <li><strong>Aprovação da ONG:</strong> <?= $adocao['aprovacao_ong'] == 1 ? 'Aprovado!' : ($adocao['aprovacao_ong'] == 2 ? 'Reprovado!' : 'Pendente') ?></li>
+        <li><strong>Ressalva:</strong> <?= !empty($adocao['ressalva']) ? htmlspecialchars($adocao['ressalva']) : 'N/A' ?></li>
     </ul>
     <form method="post">
-        <input type="hidden" name="id" value="<?= $id ?>" >
+        <input type="hidden" name="id" value="<?= $id ?>">
         <button type="submit" name="confirmar" class="btn btn-danger">Excluir</button>
-        <a href="ongs.php" class="btn btn-secondary">Cancelar</a>
+        <a href="adocoes.php" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
 
