@@ -1,45 +1,39 @@
 <?php 
     require_once 'cabecalho.php'; 
     require_once 'navbar.php'; 
-    require_once '../funcoes/animais.php';
-    require_once '../funcoes/tipos.php';
+    require_once '../funcoes/adotantes.php';
 
     $id = $_GET['id'];
     if (!$id){
-        header('Location: produtos.php');
+        header('Location: adotantes.php');
         exit();
     }
 
-    $produto = buscarProdutoPorId($id);
-    if (!$produto){
-        header('Location: produtos.php');
+    $adotante = buscarAdotantePorId($id);
+    if (!$adotante){
+        header('Location: adotantes.php');
         exit();
     }
-
-    $categorias = buscarCategorias();
 
     $erro = "";
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         try{
             $nome = $_POST['nome'];
-            $descricao = $_POST['descricao'];
-            $preco = floatval($_POST['preco']);
-            $estoque_minimo = intval($_POST['estoque_minimo']);
-            $categoria_id = intval($_POST['categoria_id']);
+            $endereco = $_POST['endereco'];
+            $idade = intval($_POST['idade']);
+            $fone = $_POST['fone'];
             $id = intval($_POST['id']);
-            if (empty($nome)){
-                $erro = "Preencha os campos obrigatórios!";
+            if (empty($nome) || empty($endereco) || empty($fone)){
+                $erro = "Preencha todos os campos obrigatórios!";
             } else {
-                if (alterarProduto($id, $nome, $descricao, $preco, 
-                        $estoque_minimo, $categoria_id)){
-                            header('Location: produtos.php');
-                            exit();
-                        } else {
-                            $erro = "Erro ao alterar o produto!";
-                        }
+                if (alterarAdotante($id, $nome, $endereco, $idade, $fone)){
+                    header('Location: adotantes.php');
+                    exit();
+                } else {
+                    $erro = "Erro ao alterar o adotante!";
+                }
             }
-
         } catch (Exception $e){
             $erro = "Erro: ".$e->getMessage();
         }
@@ -47,7 +41,7 @@
 ?>
 
 <div class="container mt-5">
-    <h2>Editar Produto</h2>
+    <h2>Editar Adotante</h2>
 
     <?php if(!empty($erro)):?>
         <p class="text-danger"><?= $erro ?></p>
@@ -57,34 +51,22 @@
         <input type="hidden" name="id" value="<?= $id ?>" />
         <div class="mb-3">
             <label for="nome" class="form-label">Nome</label>
-            <input type="text" name="nome" value="<?= $produto['nome'] ?>" id="nome" class="form-control" value="" required>
+            <input type="text" name="nome" value="<?= $adotante['nome'] ?>" id="nome" class="form-control" required>
         </div>
         <div class="mb-3">
-            <label for="descricao" class="form-label">Descrição</label>
-            <textarea name="descricao" id="descricao" class="form-control" required>
-            <?= $produto['descricao'] ?>
-            </textarea>
+            <label for="endereco" class="form-label">Endereço</label>
+            <textarea name="endereco" id="endereco" class="form-control" required><?= $adotante['endereco'] ?></textarea>
         </div>
         <div class="mb-3">
-            <label for="preco" class="form-label">Preço</label>
-            <input type="number" name="preco" value="<?= $produto['preco'] ?>" id="preco" class="form-control" step="0.01" value="" required>
+            <label for="idade" class="form-label">Idade</label>
+            <input type="number" name="idade" value="<?= $adotante['idade'] ?>" id="idade" class="form-control" required>
         </div>
         <div class="mb-3">
-            <label for="estoque_minimo" class="form-label">Estoque Mínimo</label>
-            <input type="number" name="estoque_minimo" value="<?= $produto['estoque_minimo'] ?>" id="estoque_minimo" class="form-control" value="" required>
+            <label for="fone" class="form-label">Telefone</label>
+            <input type="text" name="fone" value="<?= $adotante['fone'] ?>" id="fone" class="form-control" required>
         </div>
-        <div class="mb-3">
-            <label for="categoria_id" class="form-label">Categoria</label>
-            <select name="categoria_id" id="categoria_id" class="form-control" required>
-                <?php foreach ($categorias as $c): ?>
-                    <option value="<?= $c['id'] ?>" 
-                    <?= $c['id'] == $produto['categoria_id'] ? 'selected': '' ?> >
-                        <?= $c['nome'] ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Atualizar Produto</button>
+        <button type="submit" class="btn btn-primary">Atualizar Adotante</button>
+        <a href="adotantes.php" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
 

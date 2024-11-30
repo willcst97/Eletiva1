@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 require_once '../config/bancodedados.php';
 
-function buscarAdotantes(): array 
+function buscarAdotantes(): array
 {
     global $pdo;
     $stmt = $pdo->query("SELECT * FROM adotante");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function buscarAdotantePorId(int $id): ?array 
+function buscarAdotantePorId(int $id): ?array
 {
     global $pdo;
     $stmt = $pdo->prepare("SELECT * FROM adotante WHERE id = ?");
@@ -20,18 +20,18 @@ function buscarAdotantePorId(int $id): ?array
     return $adotante ? $adotante : null;
 }
 
-function criarAdotante(string $nome, string $endereco, int $idade, string $fone, string $email): bool
+function criarAdotante(string $nome, string $endereco, int $idade, string $fone): bool
 {
     global $pdo;
-    $stmt = $pdo->prepare("INSERT INTO adotante (nome, endereco, idade, fone, email) VALUES (?, ?, ?, ?, ?)");
-    return $stmt->execute([$nome, $endereco, $idade, $fone, $email]);
+    $stmt = $pdo->prepare("INSERT INTO adotante (nome, endereco, idade, fone) VALUES (?, ?, ?, ?)");
+    return $stmt->execute([$nome, $endereco, $idade, $fone]);
 }
 
-function alterarAdotante(int $id, string $nome, string $endereco, int $idade, string $fone, string $email): bool
+function alterarAdotante(int $id, string $nome, string $endereco, int $idade, string $fone): bool
 {
     global $pdo;
-    $stmt = $pdo->prepare("UPDATE adotante SET nome = ?, endereco = ?, idade = ?, fone = ?, email = ? WHERE id = ?");
-    return $stmt->execute([$nome, $endereco, $idade, $fone, $email, $id]);
+    $stmt = $pdo->prepare("UPDATE adotante SET nome = ?, endereco = ?, idade = ?, fone = ? WHERE id = ?");
+    return $stmt->execute([$nome, $endereco, $idade, $fone, $id]);
 }
 
 function excluirAdotante(int $id): bool
