@@ -11,7 +11,7 @@ CREATE TABLE usuario (
 
 CREATE TABLE tipo (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL
+    descricao VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE ong (

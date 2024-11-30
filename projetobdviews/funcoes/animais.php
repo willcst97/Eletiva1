@@ -7,53 +7,51 @@ require_once '../config/bancodedados.php';
 function gerarDadosGrafico(): array
 {
     global $pdo;
-    $stmt = $pdo->query("SELECT p.id, p.nome, SUM(c.quantidade) as estoque FROM compra c
-                        INNER JOIN produto p ON p.id = c.produto_id GROUP BY p.id");
+    $stmt = $pdo->query("SELECT ong.id, ong.nome, COUNT(adocao.id) as numero_adocoes FROM adocao
+                        INNER JOIN animal ON animal.id = adocao.animal_id
+                        INNER JOIN ong ON ong.id = animal.ong_id
+                        GROUP BY ong.id");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function buscarAnimais(): array
 {
     global $pdo;
-    $stmt = $pdo->query("SELECT p.*, c.nome as nome_categoria FROM produto p 
-                        INNER JOIN categoria c ON c.id = p.categoria_id");
+    $stmt = $pdo->query("SELECT animal.*, tipo.nome as tipo_nome, ong.nome as ong_nome FROM animal
+                        INNER JOIN tipo ON tipo.id = animal.tipo_id
+                        INNER JOIN ong ON ong.id = animal.ong_id");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function buscarAnimalPorId(int $id): ?array
 {
     global $pdo;
-    $stmt = $pdo->prepare("SELECT p.*, c.nome as nome_categoria FROM produto p 
-                            INNER JOIN categoria c ON c.id = p.categoria_id WHERE p.id = ?");
+    $stmt = $pdo->prepare("SELECT animal.*, tipo.nome as tipo_nome, ong.nome as ong_nome FROM animal
+                            INNER JOIN tipo ON tipo.id = animal.tipo_id
+                            INNER JOIN ong ON ong.id = animal.ong_id
+                            WHERE animal.id = ?");
     $stmt->execute([$id]);
-    $produto = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $produto ? $produto : null;
+    $animal = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $animal ? $animal : null;
 }
 
 function criarAnimal(string $nome, string $descricao, int $idade, int $tipo_id, int $ong_id): bool
 {
     global $pdo;
-    $stmt = $pdo->prepare("INSERT INTO produto (nome, descricao, idade,
-                    tipo_id, ong_id) VALUES (?, ?, ?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO animal (nome, descricao, idade, tipo_id, ong_id) VALUES (?, ?, ?, ?, ?)");
     return $stmt->execute([$nome, $descricao, $idade, $tipo_id, $ong_id]);
 }
 
-function alterarAnimal(
-    string $nome,
-    string $descricao,
-    int $idade,
-    int $tipo_id,
-    int $ong_id
-): bool {
+function alterarAnimal(int $id, string $nome, string $descricao, int $idade, int $tipo_id, int $ong_id): bool
+{
     global $pdo;
-    $stmt = $pdo->prepare("UPDATE produto SET nome = ?, descricao = ?,
-            tipo_id = ?, ong_id = ? WHERE id = ?");
-    return $stmt->execute([$nome, $descricao, $idade, $tipo_id, $ong_id]);
+    $stmt = $pdo->prepare("UPDATE animal SET nome = ?, descricao = ?, idade = ?, tipo_id = ?, ong_id = ? WHERE id = ?");
+    return $stmt->execute([$nome, $descricao, $idade, $tipo_id, $ong_id, $id]);
 }
 
 function excluirAnimal(int $id): bool
 {
     global $pdo;
-    $stmt = $pdo->prepare("DELETE FROM produto WHERE id = ?");
+    $stmt = $pdo->prepare("DELETE FROM animal WHERE id = ?");
     return $stmt->execute([$id]);
 }
