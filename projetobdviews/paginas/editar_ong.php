@@ -1,22 +1,19 @@
 <?php 
     require_once 'cabecalho.php'; 
     require_once 'navbar.php'; 
-    require_once '../funcoes/animais.php';
-    require_once '../funcoes/tipos.php';
+    require_once '../funcoes/ongs.php';
 
     $id = $_GET['id'];
     if (!$id){
-        header('Location: produtos.php');
+        header('Location: ong.php');
         exit();
     }
 
-    $produto = buscarProdutoPorId($id);
+    $ong = buscarOngPorId($id);
     if (!$produto){
-        header('Location: produtos.php');
+        header('Location: ongs.php');
         exit();
     }
-
-    $categorias = buscarCategorias();
 
     $erro = "";
 

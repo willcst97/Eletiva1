@@ -1,9 +1,9 @@
 <?php 
     require_once 'cabecalho.php'; 
     require_once 'navbar.php';  
-    require_once '../funcoes/animais.php';
+    require_once '../funcoes/ongs.php';
     
-    $produtos = buscarAnimais();
+    $ongs = buscarOngs();
 ?>
 
 <div class="container mt-5">
@@ -16,7 +16,7 @@
                 <th>Nome</th>
                 <th>Endereço</th>
                 <th>Telefone</th>
-                <th>Email</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +27,6 @@
                 <td><?= $ong['nome'] ?></td>
                 <td><?= $ong['endereco'] ?></td>
                 <td><?= $ong['fone'] ?></td>
-                <td><?= $ong['email'] ?></td>
                 <td>
                     <a href="editar_ong.php?id=<?= $ong['id'] ?>" class="btn btn-warning">Editar</a>
                     <a href="excluir_ong.php?id=<?= $ong['id'] ?>" class="btn btn-danger">Excluir</a>
@@ -37,6 +36,5 @@
         </tbody>
     </table>
 </div>
-
 
 <?php require_once 'rodape.php'; ?>
