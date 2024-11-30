@@ -19,18 +19,18 @@ function buscarOngPorId(int $id): ?array
     return $ong ? $ong : null;
 }
 
-function criarOng(string $nome, string $endereco, string $fone, string $email): bool
+function criarOng(string $nome, string $endereco, string $fone): bool
 {
     global $pdo;
-    $stmt = $pdo->prepare("INSERT INTO ong (nome, endereco, fone, email) VALUES (?, ?, ?, ?)");
-    return $stmt->execute([$nome, $endereco, $fone, $email]);
+    $stmt = $pdo->prepare("INSERT INTO ong (nome, endereco, fone) VALUES (?, ?, ?)");
+    return $stmt->execute([$nome, $endereco, $fone]);
 }
 
-function alterarOng(int $id, string $nome, string $endereco, string $fone, string $email): bool
+function alterarOng(int $id, string $nome, string $endereco, string $fone): bool
 {
     global $pdo;
-    $stmt = $pdo->prepare("UPDATE ong SET nome = ?, endereco = ?, fone = ?, email = ? WHERE id = ?");
-    return $stmt->execute([$nome, $endereco, $fone, $email, $id]);
+    $stmt = $pdo->prepare("UPDATE ong SET nome = ?, endereco = ?, fone = ? WHERE id = ?");
+    return $stmt->execute([$nome, $endereco, $fone, $id]);
 }
 
 function excluirOng(int $id): bool
