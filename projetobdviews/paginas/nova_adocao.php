@@ -7,16 +7,15 @@
 
     $adotantes = buscarAdotantes();
     $animais = buscarAnimais();
-    $dataAtual = date('Y-m-d'); // Data atual no formato AAAA-MM-DD
-
+    $dataAtual = date('Y-m-d');
     $erro = '';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         try {
             $data = $_POST['data'];
-            $adotante_id = intval($_POST['adotante_id']); // Convertendo para int
-            $animal_id = intval($_POST['animal_id']); // Convertendo para int
-            $aprovacao_ong = intval($_POST['aprovacao_ong']); // Convertendo para int
+            $adotante_id = intval($_POST['adotante_id']);
+            $animal_id = intval($_POST['animal_id']);
+            $aprovacao_ong = intval($_POST['aprovacao_ong']);
             $ressalva = $_POST['ressalva'];
 
             if (empty($data) || empty($adotante_id) || empty($animal_id)){
