@@ -1,6 +1,9 @@
 <?php
     require_once 'cabecalho.php'; 
-    require_once 'navbar.php';    
+    require_once 'navbar.php';
+    require_once '../funcoes/adocoes.php';
+
+    $adocoes = buscarAdocoes();
 ?>
 
 <div class="container mt-5">
@@ -35,6 +38,5 @@
         </tbody>
     </table>
 </div>
-
 
 <?php require_once 'rodape.php'; ?>
