@@ -34,7 +34,7 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categorias
+            Tipos de animais
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="categorias.php">Gerenciar</a></li>
@@ -43,7 +43,7 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Produtos
+            Animais
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="produtos.php">Gerenciar</a></li>
@@ -52,7 +52,25 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Compras
+            Adotantes
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="produtos.php">Gerenciar</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            ONGs
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="produtos.php">Gerenciar</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Adoções
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="compras.php">Gerenciar</a></li>

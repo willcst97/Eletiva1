@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 require_once '../config/bancodedados.php';
 
-
-
 function buscarAnimais(): array
 {
     global $pdo;

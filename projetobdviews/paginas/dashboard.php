@@ -2,7 +2,7 @@
 
     require_once 'cabecalho.php'; 
     require_once 'navbar.php';
-    require_once '../funcoes/animais.php';
+    require_once '../funcoes/adocoes.php';
 
     $dados = gerarDadosGrafico();
 ?>

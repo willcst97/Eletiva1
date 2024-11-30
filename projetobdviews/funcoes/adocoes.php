@@ -4,7 +4,15 @@ declare(strict_types=1);
 
 require_once '../config/bancodedados.php';
 
-
+function gerarDadosGrafico(): array
+{
+    global $pdo;
+    $stmt = $pdo->query("SELECT ong.id, ong.nome, COUNT(adocao.id) as numero_adocoes FROM adocao
+                        INNER JOIN animal ON animal.id = adocao.animal_id
+                        INNER JOIN ong ON ong.id = animal.ong_id
+                        GROUP BY ong.id");
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 function buscarAnimais(): array
 {
