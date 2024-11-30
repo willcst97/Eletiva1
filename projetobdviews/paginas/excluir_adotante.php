@@ -1,22 +1,22 @@
 <?php 
     require_once 'cabecalho.php'; 
     require_once 'navbar.php';
-    require_once '../funcoes/produtos.php';
-    require_once '../funcoes/categorias.php';
+    require_once '../funcoes/animais.php';
+    require_once '../funcoes/tipos.php';
 
     $id = $_GET['id'];
     if (!$id){
-        header('Location: produtos.php');
+        header('Location: animais.php');
         exit();
     }
 
-    $produto = buscarProdutoPorId($id);
+    $produto = buscarAnimalPorId($id);
     if (!$produto){
-        header('Location: produtos.php');
+        header('Location: animais.php');
         exit();
     }
 
-    $categorias = buscarCategorias();
+    $categorias = buscarTipos();
 
     $erro = "";
 
@@ -24,11 +24,11 @@
         try {
             $id = intval($_POST['id']);
             if (empty($id)){
-                header('Location: produtos.php');
+                header('Location: animais.php');
                 exit();
             } else{
                 if (excluirProduto($id)){
-                    header('Location: produtos.php');
+                    header('Location: animais.php');
                     exit();
                 } else {
                     $erro = "Erro ao excluir o produto!"; 

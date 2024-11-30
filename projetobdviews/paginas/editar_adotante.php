@@ -1,8 +1,8 @@
 <?php 
     require_once 'cabecalho.php'; 
     require_once 'navbar.php'; 
-    require_once '../funcoes/produtos.php';
-    require_once '../funcoes/categorias.php';
+    require_once '../funcoes/animais.php';
+    require_once '../funcoes/tipos.php';
 
     $id = $_GET['id'];
     if (!$id){

@@ -37,7 +37,7 @@
             Tipos de animais
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="categorias.php">Gerenciar</a></li>
+            <li><a class="dropdown-item" href="tipos.php">Gerenciar</a></li>
           </ul>
         </li>
 
@@ -46,7 +46,7 @@
             Animais
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="produtos.php">Gerenciar</a></li>
+            <li><a class="dropdown-item" href="animais.php">Gerenciar</a></li>
           </ul>
         </li>
 
@@ -55,7 +55,7 @@
             Adotantes
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="produtos.php">Gerenciar</a></li>
+            <li><a class="dropdown-item" href="adotantes.php">Gerenciar</a></li>
           </ul>
         </li>
 
@@ -64,7 +64,7 @@
             ONGs
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="produtos.php">Gerenciar</a></li>
+            <li><a class="dropdown-item" href="ongs.php">Gerenciar</a></li>
           </ul>
         </li>
 
@@ -73,8 +73,8 @@
             Adoções
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="compras.php">Gerenciar</a></li>
-            <li><a class="dropdown-item" href="relatorio_compras.php">Relatórios</a></li>
+            <li><a class="dropdown-item" href="adocoes.php">Gerenciar</a></li>
+            <li><a class="dropdown-item" href="relatorio_adocoes.php">Relatórios</a></li>
           </ul>
         </li>
       </ul>
