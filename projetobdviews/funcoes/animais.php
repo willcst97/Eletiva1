@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 require_once '../config/bancodedados.php';
 
-
-
 function buscarAnimais(): array
 {
     global $pdo;
-    $stmt = $pdo->query("SELECT animal.*, tipo.nome as tipo_nome, ong.nome as ong_nome FROM animal
+    $stmt = $pdo->query("SELECT animal.*, tipo.descricao as tipo_descricao, ong.nome as ong_nome FROM animal
                         INNER JOIN tipo ON tipo.id = animal.tipo_id
                         INNER JOIN ong ON ong.id = animal.ong_id");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);

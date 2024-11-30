@@ -6,17 +6,17 @@
 
     $id = $_GET['id'];
     if (!$id){
-        header('Location: produtos.php');
+        header('Location: animais.php');
         exit();
     }
 
-    $produto = buscarProdutoPorId($id);
-    if (!$produto){
-        header('Location: produtos.php');
+    $animal = buscarAnimalPorId($id);
+    if (!$animal){
+        header('Location: animal.php');
         exit();
     }
 
-    $categorias = buscarCategorias();
+    $categorias = buscarTipos();
 
     $erro = "";
 
@@ -24,16 +24,16 @@
         try{
             $nome = $_POST['nome'];
             $descricao = $_POST['descricao'];
-            $preco = floatval($_POST['preco']);
-            $estoque_minimo = intval($_POST['estoque_minimo']);
-            $categoria_id = intval($_POST['categoria_id']);
+            $idade = floatval($_POST['idade']);
+            $tipo_id = intval($_POST['tipo_id']);
+            $ong_id = intval($_POST['ong_id']);
             $id = intval($_POST['id']);
             if (empty($nome)){
                 $erro = "Preencha os campos obrigatórios!";
             } else {
-                if (alterarProduto($id, $nome, $descricao, $preco, 
-                        $estoque_minimo, $categoria_id)){
-                            header('Location: produtos.php');
+                if (alterarAnimal($id, $nome, $descricao, $idade, 
+                        $tipo_id, $ong_id)){
+                            header('Location: animais.php');
                             exit();
                         } else {
                             $erro = "Erro ao alterar o produto!";

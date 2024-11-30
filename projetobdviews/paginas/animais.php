@@ -3,7 +3,7 @@
     require_once 'navbar.php';  
     require_once '../funcoes/animais.php';
     
-    $produtos = buscarAnimais();
+    $animais = buscarAnimais();
 ?>
 
 <div class="container mt-5">
@@ -22,17 +22,17 @@
         </thead>
         <tbody>
             
-            <?php foreach($produtos as $p) : ?>
+            <?php foreach($animais as $a) : ?>
             <tr>
-                <td><?= $p['id'] ?></td>
-                <td><?= $p['nome'] ?></td>
-                <td><?= $p['descricao'] ?></td>
-                <td><?= $p['idade'] ?></td>
-                <td><?= $p['tipo'] ?></td>
-                <td><?= $p['ong'] ?></td>
+                <td><?= $a['id'] ?></td>
+                <td><?= $a['nome'] ?></td>
+                <td><?= $a['descricao'] ?></td>
+                <td><?= $a['idade'] ?></td>
+                <td><?= $a['tipo_descricao'] ?></td>
+                <td><?= $a['ong_nome'] ?></td>
                 <td>
-                    <a href="editar_produto.php?id=<?= $p['id'] ?>" class="btn btn-warning">Editar</a>
-                    <a href="excluir_produto.php?id=<?= $p['id'] ?>" class="btn btn-danger">Excluir</a>
+                    <a href="editar_animal.php?id=<?= $a['id'] ?>" class="btn btn-warning">Editar</a>
+                    <a href="excluir_animal.php?id=<?= $a['id'] ?>" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
             <?php endforeach; ?>
